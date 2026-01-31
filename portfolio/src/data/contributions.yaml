@@ -1,0 +1,665 @@
+name: Atul Koshta
+title: Full-Stack Software Engineer
+
+skills:
+  cloud_devops:
+    - AWS S3
+    - AWS SQS
+    - AWS Lambda
+    - AWS ECS
+    - AWS Textract
+    - AWS IAM
+    - Linux
+    - Git
+    - Terraform
+    - CI/CD
+    - Selective Deployment Pipelines
+  backend:
+    - Node.js
+    - Express
+    - Python
+    - Flask
+    - Ruby on Rails
+    - Sequelize ORM
+  frontend:
+    - React
+    - Next.js
+    - Vite
+    - TypeScript
+  auth_security:
+    - Keycloak (IAM)
+    - OAuth2
+    - JWT
+    - OTP-based Auth
+    - NGINX/Lua Proxy
+    - API Key Encryption
+  databases:
+    - MySQL
+    - Elasticsearch
+  caching_queuing:
+    - Redis
+    - Celery
+    - AWS SQS
+    - Event-Driven Architecture
+  testing:
+    - Jest
+    - Supertest
+    - Mocha
+    - Chai
+    - Sinon
+    - RSpec
+    - Factory-Pattern Test Data
+  api_design:
+    - REST
+    - OpenAPI (Swagger)
+    - Client ID/Secret Auth
+  integrations:
+    - Stripe
+    - GoHighLevel CRM
+    - Zapier
+    - Zoho
+    - SendGrid
+    - Google APIs
+    - crawl4ai
+  ai_processing:
+    - AWS Textract (OCR)
+    - AI-Powered Receipt Processing
+    - crawl4ai Web Scraping
+  architecture:
+    - Microservices
+    - Double-Entry Bookkeeping
+    - Multi-Brand Hierarchy
+    - System Decoupling
+    - Queue-Based Processing
+
+experience:
+  - company: HAR LLC
+    location: Phoenix, AZ, USA
+    type: Contract
+    role: Software Engineer
+    duration: Sept 2024 – Present
+    project: Catering Rewards Platform
+    project_description: Multi-service Node.js application managing customer loyalty programs, order tracking, and rewards distribution for restaurant businesses.
+    timeline:
+
+      - period: Sep – Nov 2024
+        theme: Authentication & User Management
+        contributions:
+          - what: Designed and owned the entire authentication module for the platform
+            category: architecture
+            tech: [Node.js, Express, Keycloak, NGINX, Lua]
+            impact: Single ownership of auth across all portals
+          - what: Built phone number and email-based login with OTP verification for user-facing and restaurant operator portals
+            category: feature
+            tech: [Node.js, Express, Keycloak, JWT]
+            impact: Enabled multi-channel authentication for all user types
+          - what: Implemented complete user sign-up flow with first name, last name, work email, personal email, password, phone number, and email/phone verification
+            category: feature
+            tech: [Node.js, Express, Sequelize, MySQL]
+            impact: Full self-service user registration
+          - what: Architected NGINX proxy service layer integrating with Keycloak for secure API authentication
+            category: architecture
+            tech: [NGINX, Lua, Keycloak, OAuth2]
+            impact: Centralized auth gateway for all API traffic
+          - what: Built proxy layer for customer-facing APIs
+            category: feature
+            tech: [NGINX, Lua, Node.js]
+            impact: Secure API access for external clients
+          - what: Implemented core login API, customer creation endpoint with validation, and customer details retrieval endpoint
+            category: feature
+            tech: [Node.js, Express, Sequelize, MySQL]
+            impact: Foundation customer management APIs
+          - what: Fixed auth issues — expired OTP acceptance, whitespace handling, resend code timing, verify button failures, navigation bugs
+            category: bugfix
+            tech: [Node.js, Express]
+            impact: Stable and reliable authentication flow
+
+      - period: Nov – Dec 2024
+        theme: Customer APIs & Data Integrity
+        contributions:
+          - what: Built customer GUID retrieval API — lookup by phone number or email
+            category: feature
+            tech: [Node.js, Express, Sequelize, MySQL]
+            impact: Enabled flexible customer lookup for downstream services
+          - what: Implemented phone and email uniqueness validation during signup
+            category: feature
+            tech: [Node.js, Sequelize, MySQL]
+            impact: Prevented duplicate account creation
+          - what: Fixed error handling — 409 for duplicate emails, proper codes for invalid phone numbers, empty last names, phone with spaces, incorrect error messages
+            category: bugfix
+            tech: [Node.js, Express]
+            impact: Standardized API error responses across all customer endpoints
+          - what: Standardized API response formats and validation across all customer endpoints
+            category: improvement
+            tech: [Node.js, Express]
+            impact: Consistent API contract for all consumers
+
+      - period: Jan 2025
+        theme: GoHighLevel CRM Integration — Phase 1
+        contributions:
+          - what: Researched GoHighLevel APIs for customer and location/subaccount management
+            category: research
+            tech: [GoHighLevel API]
+            impact: Defined integration approach and scope
+          - what: Designed DB schema changes for restaurant_store and customer tables to store API keys metadata and sync response data
+            category: architecture
+            tech: [MySQL, Sequelize]
+            impact: Data foundation for CRM integration
+          - what: Built backend API calls for GoHighLevel and integrated with customer flow
+            category: feature
+            tech: [Node.js, Express, GoHighLevel API]
+            impact: Real-time customer data sync to CRM
+          - what: Configured GoHighLevel webhooks and account setup
+            category: integration
+            tech: [GoHighLevel, Webhooks]
+            impact: Automated event-driven CRM updates
+          - what: Set up AWS cron jobs for periodic data synchronization
+            category: devops
+            tech: [AWS Lambda, Cron]
+            impact: Automated recurring data sync
+          - what: Tested end-to-end integration with dummy restaurant and location data
+            category: testing
+            tech: [GoHighLevel API, Node.js]
+            impact: Validated integration before production rollout
+
+      - period: Jan – Feb 2025
+        theme: Scraping Architecture & POS Integrations
+        contributions:
+          - what: Designed the scraping enhancement roadmap
+            category: architecture
+            tech: [Node.js]
+            impact: Clear technical direction for scraping improvements
+          - what: Decoupled database dependency from scraping pipeline for scalability (first iteration)
+            category: architecture
+            tech: [Node.js, Sequelize, AWS SQS]
+            impact: Scraping no longer blocked by DB bottlenecks
+          - what: Built MonkeyMedia POS scraping processor
+            category: feature
+            tech: [Node.js, Web Scraping]
+            impact: Automated order ingestion from MonkeyMedia POS
+          - what: Built marketplace order ingestion processor
+            category: feature
+            tech: [Node.js, AWS SQS]
+            impact: Automated marketplace order collection
+          - what: Implemented order ingestion request queue consumer for async processing
+            category: feature
+            tech: [Node.js, AWS SQS, Lambda]
+            impact: Non-blocking order processing pipeline
+          - what: Fixed marketplace scraping failures and data issues
+            category: bugfix
+            tech: [Node.js]
+            impact: Reliable marketplace data collection
+
+      - period: Feb – Mar 2025
+        theme: GHL Event Tracking & Scraping Improvements
+        contributions:
+          - what: Implemented event tracking system pushing customer activities, order events, and reward events to GoHighLevel in real-time
+            category: feature
+            tech: [Node.js, GoHighLevel API, Event-Driven Architecture]
+            impact: Real-time CRM visibility into all platform events
+          - what: Built triggers for customer/contact, order, and reward events with unit tests
+            category: feature
+            tech: [Node.js, Jest]
+            impact: Comprehensive event coverage for CRM
+          - what: Implemented marketplace report processor and Olo POS processor
+            category: feature
+            tech: [Node.js, Web Scraping]
+            impact: Two additional data source integrations
+          - what: Built webhook triggers for scraping events
+            category: feature
+            tech: [Node.js, Webhooks]
+            impact: Event-driven scraping notifications
+          - what: Fixed scraping stuck states, simultaneous conflicts, automation detection, and missing customer data
+            category: bugfix
+            tech: [Node.js, Web Scraping]
+            impact: Stable and resilient scraping pipeline
+          - what: Engineered bulk import of old customers (including EzCater) into GoHighLevel
+            category: feature
+            tech: [Node.js, GoHighLevel API, MySQL]
+            impact: Migrated historical customer base to CRM
+          - what: Implemented restaurant location deletion capability
+            category: feature
+            tech: [Node.js, Express, Sequelize]
+            impact: Admin can manage restaurant lifecycle
+
+      - period: Mar – Apr 2025
+        theme: GHL Maturation & Security
+        contributions:
+          - what: Created API endpoint to retrieve GHL-synced data
+            category: feature
+            tech: [Node.js, Express]
+            impact: Admin visibility into GHL sync status
+          - what: Built admin UI enhancements for GHL configuration management
+            category: feature
+            tech: [React, Node.js]
+            impact: Self-service GHL configuration for admins
+          - what: Implemented encrypted storage for GHL API keys with masked key display in responses
+            category: security
+            tech: [Node.js, Encryption]
+            impact: Secured sensitive CRM credentials at rest and in transit
+          - what: Completed second iteration of scraping database decoupling for enhanced scalability
+            category: architecture
+            tech: [Node.js, Sequelize, AWS SQS]
+            impact: Further reduced DB coupling in scraping pipeline
+          - what: Fixed duplicate GHL records for initial push and marketplace user sync issues
+            category: bugfix
+            tech: [Node.js, GoHighLevel API]
+            impact: Clean CRM data without duplicates
+          - what: Integrated communication support from scraping flow
+            category: feature
+            tech: [Node.js, AWS SQS]
+            impact: Scraping pipeline can trigger notifications
+
+      - period: Apr – May 2025
+        theme: Receipt Upload & OCR System
+        contributions:
+          - what: Built complete receipt upload and AI-powered processing pipeline from scratch
+            category: architecture
+            tech: [Node.js, Express, AWS Textract, AWS S3, MySQL]
+            impact: Fully automated receipt-to-rewards pipeline
+          - what: Designed and executed receipt table database migration
+            category: feature
+            tech: [Sequelize, MySQL]
+            impact: Data layer for receipt storage and processing
+          - what: Built receipt upload API endpoint
+            category: feature
+            tech: [Node.js, Express, AWS S3]
+            impact: Customers can submit receipts for reward points
+          - what: Implemented OCR text extraction using AWS Textract with AI for automated receipt data parsing
+            category: feature
+            tech: [AWS Textract, AI, Node.js]
+            impact: Automated extraction of order details from receipt images
+          - what: Built receipt approval workflow for restaurant operators
+            category: feature
+            tech: [Node.js, Express, Sequelize]
+            impact: Operator review and approval of submitted receipts
+          - what: Configured and deployed receipt system infrastructure
+            category: devops
+            tech: [AWS S3, AWS Lambda, Terraform]
+            impact: Production-ready receipt processing infra
+          - what: Created API documentation and flowcharts
+            category: documentation
+            tech: [OpenAPI, Mermaid]
+            impact: Clear reference for team and stakeholders
+          - what: Built receipt submission approval notifications with conditional login requirement
+            category: feature
+            tech: [Node.js, SendGrid]
+            impact: Automated notification to operators when receipts need review
+          - what: Extended receipt upload to restaurant operator (Rob) and customer (Sally) portals
+            category: feature
+            tech: [Node.js, Express]
+            impact: Receipt upload available across all user roles
+          - what: Fixed subtotal parsing, duplicate uploads, reupload-after-rejection, expired links, email formatting
+            category: bugfix
+            tech: [Node.js, AWS Textract]
+            impact: Reliable receipt processing end-to-end
+
+      - period: May 2025
+        theme: GHL Tag Tracking & Points Sync
+        contributions:
+          - what: Implemented tag tracking across Loyal, Non-Loyal, and Marketplace customer segments
+            category: feature
+            tech: [Node.js, GoHighLevel API]
+            impact: Segment-aware tagging in CRM for targeted campaigns
+          - what: Extended event tracking to non-signed-up and marketplace customer segments
+            category: feature
+            tech: [Node.js, GoHighLevel API, Event-Driven Architecture]
+            impact: Full customer lifecycle visibility in CRM
+          - what: Conducted knowledge transfer on NSU and marketplace user points data sync
+            category: mentorship
+            tech: []
+            impact: Team upskilled on points sync logic
+          - what: Fixed brand-specific POS login URLs, missing marketplace orders, simultaneous scraping conflicts
+            category: bugfix
+            tech: [Node.js, Web Scraping]
+            impact: Stable multi-brand scraping
+          - what: Fixed Lambda production error during model initialization blocking order processing
+            category: bugfix
+            tech: [AWS Lambda, Sequelize]
+            impact: Unblocked production order processing
+
+      - period: May – Jun 2025
+        theme: Zapier Integration
+        contributions:
+          - what: Built complete Zapier workflow automation integration as sole developer
+            category: architecture
+            tech: [Node.js, Zapier Platform, Webhooks]
+            impact: Platform connected to 5000+ apps via Zapier
+          - what: Explored Zapier developer platform and designed integration architecture
+            category: research
+            tech: [Zapier Platform]
+            impact: Defined trigger/action model for platform events
+          - what: Developed 9 distinct trigger modules — 3 loyal customer, 1 marketplace orders, 1 non-signed-up users, 4 rewards
+            category: feature
+            tech: [Node.js, Zapier Platform, Webhooks]
+            impact: Comprehensive event coverage for external automation
+          - what: Created and validated production Zaps
+            category: testing
+            tech: [Zapier]
+            impact: Verified end-to-end automation workflows
+          - what: Reviewed and standardized trigger types across all Zapier events
+            category: improvement
+            tech: [Node.js]
+            impact: Consistent trigger contract for Zapier consumers
+
+      - period: Jun 2025
+        theme: Secure APIs, Auth Fixes & Restaurant Settings
+        contributions:
+          - what: Replaced legacy GUID-based customer identification with new secure customer IDs in API requests
+            category: security
+            tech: [Node.js, Express]
+            impact: Eliminated insecure customer ID exposure
+          - what: Removed expired access token validation from refresh token flow
+            category: bugfix
+            tech: [Node.js, JWT, Keycloak]
+            impact: Fixed critical auth flow preventing token refresh
+          - what: Fixed Nginx proxy server build issues and Omnicart API 401 errors
+            category: bugfix
+            tech: [NGINX, Lua]
+            impact: Restored proxy server builds and API access
+          - what: Built multi-restaurant settings — apply page details, payment method summary, shared payment method across restaurants
+            category: feature
+            tech: [Node.js, Express, Sequelize, MySQL]
+            impact: Admins can manage settings at scale across restaurant groups
+          - what: Defined IAM access structure for the team
+            category: devops
+            tech: [AWS IAM]
+            impact: Proper access controls for all team members
+
+      - period: Jun – Jul 2025
+        theme: Receipt Improvements & Payment Features
+        contributions:
+          - what: Added attachment links in action-required emails for receipt uploads
+            category: improvement
+            tech: [Node.js, SendGrid]
+            impact: Operators can access receipts directly from email
+          - what: Fixed receipt subtotal zero, duplicate uploads, reupload errors, expired links, edited receipt submission failures
+            category: bugfix
+            tech: [Node.js, AWS Textract]
+            impact: Stable receipt processing pipeline
+          - what: Implemented card expiry date display in payment settings
+            category: feature
+            tech: [Node.js, Stripe]
+            impact: Users can see card expiry before it lapses
+          - what: Enabled selective deployment from staging to pre-prod
+            category: devops
+            tech: [CI/CD, Git]
+            impact: Smoother release process with reduced risk
+          - what: Fixed card deletion and duplicate card addition issues
+            category: bugfix
+            tech: [Node.js, Stripe]
+            impact: Clean payment method management
+          - what: Integrated Zoho Help Desk with the platform
+            category: integration
+            tech: [Node.js, Zoho API]
+            impact: Unified customer support workflow
+
+      - period: Jul – Aug 2025
+        theme: Payment Fixes & Financial Accuracy
+        contributions:
+          - what: Fixed payment processing failures when cards added from All Store settings
+            category: bugfix
+            tech: [Node.js, Stripe]
+            impact: Payments work regardless of card assignment scope
+          - what: Updated DB schema to track Stripe Customer ID in payment methods and business entities
+            category: feature
+            tech: [MySQL, Sequelize, Stripe]
+            impact: Reliable Stripe customer tracking
+          - what: Resolved recurring expired card errors triggered by hourly cron jobs and webhooks
+            category: bugfix
+            tech: [Node.js, Stripe, Cron]
+            impact: Eliminated noisy recurring payment errors in production
+          - what: Fixed card re-addition after deletion and empty restaurant details for new restaurants
+            category: bugfix
+            tech: [Node.js, Stripe, Sequelize]
+            impact: Smooth payment onboarding for new restaurants
+
+      - period: Aug – Sep 2025
+        theme: Double-Entry Bookkeeping & Ledger Migration
+        contributions:
+          - what: Led research and implementation of migrating platform ledger to double-entry bookkeeping system
+            category: architecture
+            tech: [Node.js, Sequelize, MySQL]
+            impact: Accounting-grade financial record keeping
+          - what: Designed migration strategy from single-entry to double-entry bookkeeping
+            category: research
+            tech: [MySQL, Sequelize]
+            impact: Clear migration path with minimal data loss risk
+          - what: Implemented data migration scripts for transitioning existing ledger entries
+            category: feature
+            tech: [Node.js, Sequelize, MySQL]
+            impact: Historical data preserved in new format
+          - what: Inserted additional transaction entries into journal tables for double-entry compliance
+            category: feature
+            tech: [Node.js, Sequelize, MySQL]
+            impact: Every transaction has matching debit/credit entries
+          - what: Built core double-entry bookkeeping logic with comprehensive unit tests
+            category: feature
+            tech: [Node.js, Jest, Sequelize]
+            impact: Tested and reliable financial logic
+          - what: Added gohighlevelSyncEnabled property for per-restaurant GHL sync toggle
+            category: feature
+            tech: [Node.js, Sequelize]
+            impact: Granular control over CRM sync per restaurant
+          - what: Fixed broken unit test cases across the codebase
+            category: bugfix
+            tech: [Jest, Node.js]
+            impact: Green CI pipeline
+
+      - period: Sep – Oct 2025
+        theme: Ledger Finalization & Wallet Planning
+        contributions:
+          - what: Managed staging environment reverts for safe ledger iteration across multiple sprint cycles
+            category: devops
+            tech: [Git, Node.js]
+            impact: Safe iterative development without production risk
+          - what: Introduced Amazon gift card account into ledger and updated expired cashback points handling
+            category: feature
+            tech: [Node.js, Sequelize, MySQL]
+            impact: Gift card transactions tracked in financial system
+          - what: Conducted research and planning for Wallet feature
+            category: research
+            tech: [Node.js, MySQL]
+            impact: Defined wallet architecture and data model
+          - what: Resolved recurring Stripe subscription payment errors and card re-addition issues
+            category: bugfix
+            tech: [Node.js, Stripe]
+            impact: Stable subscription billing
+
+      - period: Oct – Nov 2025
+        theme: Wallet System & Reporting Overhaul
+        contributions:
+          - what: Designed wallet schema and data modeling
+            category: architecture
+            tech: [MySQL, Sequelize]
+            impact: Scalable wallet data layer
+          - what: Implemented core wallet functionality — credit, debit, and balance management
+            category: feature
+            tech: [Node.js, Express, Sequelize, MySQL]
+            impact: Restaurants can manage credits digitally
+          - what: Integrated wallet with existing ledger for payment processing
+            category: feature
+            tech: [Node.js, Sequelize, MySQL]
+            impact: Wallet transactions reflected in financial ledger
+          - what: Built brand-level wallet and configuration settings
+            category: feature
+            tech: [Node.js, Express, Sequelize]
+            impact: Wallet configurable at brand level
+          - what: Fixed missing, duplicate, and extra records across Restaurant Payments, Restaurant Rewards, GC Redemption, Cashback Transaction, and Software Billing reports
+            category: bugfix
+            tech: [Node.js, Sequelize, MySQL]
+            impact: Accurate financial reporting across all admin dashboards
+          - what: Added old Stripe Transaction IDs to new reports for traceability
+            category: improvement
+            tech: [Node.js, Stripe]
+            impact: Audit trail between old and new report formats
+          - what: Fixed record mismatches between old and new report formats in production
+            category: bugfix
+            tech: [Node.js, MySQL]
+            impact: Data consistency between legacy and new systems
+
+      - period: Nov – Dec 2025
+        theme: Wallet Maturation & Production Hardening
+        contributions:
+          - what: Built shared wallet restrictions for individual wallet operations
+            category: feature
+            tech: [Node.js, Express, Sequelize]
+            impact: Proper fund isolation between shared and individual wallets
+          - what: Implemented auto-recharge toggle functionality
+            category: feature
+            tech: [Node.js, Stripe, Sequelize]
+            impact: Automatic wallet top-up when balance is low
+          - what: Implemented low-balance wallet backup notification strategy
+            category: feature
+            tech: [Node.js, SendGrid]
+            impact: Proactive alerts before wallet runs dry
+          - what: Extended points expiry dates in production for year-end accounting compliance
+            category: feature
+            tech: [Node.js, Sequelize, MySQL]
+            impact: Revenue correctly recognized in fiscal year
+          - what: Fixed 12+ wallet bugs — processing fees, report downloads, approval failures, filter errors, transaction history leaks, add funds errors, zero-amount bugs, auto-recharge issues, date display gaps
+            category: bugfix
+            tech: [Node.js, Stripe, Sequelize]
+            impact: Production-stable wallet system
+          - what: Managed production wallet release preserving existing card payment methods
+            category: devops
+            tech: [Node.js, Stripe, MySQL]
+            impact: Zero-downtime wallet feature rollout
+          - what: Fixed financial reports to show receivable transactions instead of payment-method transactions
+            category: bugfix
+            tech: [Node.js, Sequelize]
+            impact: Accurate receivable accounting
+          - what: Led backend code walkthroughs for new team member Rahul
+            category: mentorship
+            tech: []
+            impact: Accelerated onboarding of new developer
+
+      - period: Dec 2025
+        theme: Marketplace Data Platform — New Initiative
+        contributions:
+          - what: Architected new Marketplace scraping and data ingestion platform from scratch
+            category: architecture
+            tech: [Python, crawl4ai, AWS S3]
+            impact: Foundation for scalable marketplace data collection
+          - what: Created architecture and flow plan for marketplace data ingestion
+            category: architecture
+            tech: [Mermaid, Draw.io]
+            impact: Clear technical blueprint for team
+          - what: Conducted spike on crawl4ai for intelligent web scraping with demo implementation
+            category: research
+            tech: [Python, crawl4ai]
+            impact: Validated crawl4ai as scraping solution
+          - what: Defined standard JSON schema for Toast restaurant and menu data ingestion
+            category: architecture
+            tech: [JSON Schema]
+            impact: Standardized data contract for all scraped data
+          - what: Created persistent restaurant registry with metadata and state management
+            category: feature
+            tech: [Python, MySQL]
+            impact: Track scraping state per restaurant
+          - what: Designed modular project structure for marketplace services (Scraper + AI modules)
+            category: architecture
+            tech: [Python]
+            impact: Clean separation of concerns for maintainability
+          - what: Implemented restaurant list scraping with upsert logic (platform-aware)
+            category: feature
+            tech: [Python, crawl4ai]
+            impact: Automated restaurant discovery across platforms
+          - what: Configured Crawl4AI for full end-to-end restaurant scraping including modifiers
+            category: feature
+            tech: [Python, crawl4ai]
+            impact: Complete menu data capture with customizations
+          - what: Defined S3 folder naming conventions for scraped data
+            category: architecture
+            tech: [AWS S3]
+            impact: Organized and retrievable data storage
+          - what: Implemented data normalization and S3 storage for scraped ezCater data
+            category: feature
+            tech: [Python, AWS S3]
+            impact: Clean normalized data ready for downstream processing
+
+      - period: Jan 2026
+        theme: Reward Refactoring, Brand Architecture & Parallel Scraping
+        contributions:
+          - what: Configured Crawl4AI to run scraping in parallel for improved performance
+            category: feature
+            tech: [Python, crawl4ai, Async]
+            impact: Significant reduction in total scrape time
+          - what: Designing image processing pipeline for localizing menu images
+            category: architecture
+            tech: [Python, AWS S3]
+            impact: Local image hosting for faster menu rendering
+          - what: Refactoring reward calculation logic into single testable domain module — process transaction, cashback calculation, order calculation, cashback recalculation
+            category: architecture
+            tech: [Node.js, Jest]
+            impact: Maintainable and testable reward logic
+          - what: Implemented Lambda-to-backend API calls for reward calculation of new orders
+            category: feature
+            tech: [AWS Lambda, Node.js, Express]
+            impact: Decoupled reward calculation from Lambda runtime
+          - what: Designing Brand-Group-Store architecture — leading Brand Hierarchy epic, schema migration for Points Tracking Config and Franchise Groups, Brand Mapper facade pattern
+            category: architecture
+            tech: [Node.js, Sequelize, MySQL]
+            impact: Foundation for multi-brand restaurant management
+
+  - company: TRGT Digital
+    location: Barcelona, Spain
+    type: Remote
+    role: Software Development Engineer
+    duration: Jun 2023 – Jan 2024
+    timeline:
+      - period: Jun 2023 – Jan 2024
+        theme: Digital Marketing Platform
+        contributions:
+          - what: Developed user activity tracker using MySQL and Flask to monitor engagement in a digital marketing tool
+            category: feature
+            tech: [Python, Flask, MySQL]
+            impact: Improved campaign performance measurement
+          - what: Managed VPS operations and implemented encryption techniques for application security
+            category: devops
+            tech: [Linux, VPS, Encryption]
+            impact: Hardened production environment and protected sensitive data
+          - what: Optimized dashboard load time by 80% through Redis caching
+            category: performance
+            tech: [Redis, Python, Flask]
+            impact: 80% reduction in dashboard load time
+          - what: Debugged and stabilized Python application issues for reliable production operation
+            category: bugfix
+            tech: [Python, Flask]
+            impact: Stable production application
+          - what: Implemented Celery scheduler to optimize Facebook Graph API usage
+            category: feature
+            tech: [Celery, Python, Facebook Graph API]
+            impact: Improved task execution efficiency and rate limit compliance
+
+  - company: Bluesapling Technologies
+    location: Bangalore, India
+    type: Full-time
+    role: Software Development Engineer
+    duration: May 2022 – May 2023
+    timeline:
+      - period: May 2022 – May 2023
+        theme: EdTech Platform
+        contributions:
+          - what: Engineered algorithm to update user progress across multiple groups
+            category: performance
+            tech: [Node.js, MongoDB]
+            impact: ~50% reduction in API response time
+          - what: Enhanced application features to meet evolving business and end-user needs
+            category: feature
+            tech: [Node.js, React]
+            impact: Delivered new features aligned with product roadmap
+
+  - company: Wipro
+    location: Bangalore, India
+    type: Full-time
+    role: Solution Quality Assurance Engineer
+    duration: Jul 2021 – May 2022
+    timeline:
+      - period: Jul 2021 – May 2022
+        theme: Enterprise QA
+        contributions:
+          - what: Collaborated with cross-functional teams on quality assurance for enterprise software products
+            category: testing
+            tech: [QA, Manual Testing]
+            impact: Ensured product quality and feature validation
