@@ -1,16 +1,16 @@
 [
   {
     "institution": "Indian Institute of Technology, Kharagpur",
-    "degree": "Master of Science (M.Sc.)",
-    "field": "Mathematics and Computing",
-    "duration": "2019 – 2021",
+    "degree": "Master of Technology (M.Tech.)",
+    "field": "Engineering Entrepreneurship",
+    "duration": "2016 – 2021",
     "location": "Kharagpur, India"
   },
   {
     "institution": "Indian Institute of Technology, Kharagpur",
-    "degree": "Bachelor of Science (B.Sc.)",
-    "field": "Mathematics and Computing",
-    "duration": "2016 – 2019",
+    "degree": "Bachelor of Technology (B.Tech.)",
+    "field": "Mining Engineering",
+    "duration": "2016 – 2020",
     "location": "Kharagpur, India"
   }
 ]
