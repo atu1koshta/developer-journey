@@ -8,12 +8,12 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import type { Skills } from "@/lib/types";
-import { SKILL_CATEGORY_LABELS } from "@/lib/constants";
+import { SKILL_CATEGORY_LABELS, SKILL_PROFICIENCY } from "@/lib/constants";
 
 export default function SkillRadarChart({ skills }: { skills: Skills }) {
-  const data = Object.entries(skills).map(([key, items]) => ({
+  const data = Object.entries(skills).map(([key]) => ({
     subject: SKILL_CATEGORY_LABELS[key] || key,
-    value: items.length,
+    value: SKILL_PROFICIENCY[key] ?? 5,
   }));
 
   return (

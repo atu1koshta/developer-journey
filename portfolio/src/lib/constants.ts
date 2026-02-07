@@ -12,6 +12,21 @@ export const SKILL_CATEGORY_LABELS: Record<string, string> = {
   architecture: "Architecture",
 };
 
+// Skill proficiency levels (1–10) used by the radar chart.
+export const SKILL_PROFICIENCY: Record<string, number> = {
+  cloud_devops: 7,
+  backend: 9,
+  frontend: 5,
+  auth_security: 8,
+  databases: 7,
+  caching_queuing: 7,
+  testing: 7,
+  api_design: 7,
+  integrations: 8,
+  ai_processing: 5,
+  architecture: 10,
+};
+
 // Higher number = higher value. Used to sort contributions by impact.
 export const CATEGORY_VALUE_WEIGHT: Record<string, number> = {
   architecture: 10,
