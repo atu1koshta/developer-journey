@@ -130,10 +130,10 @@ export function getKeyProjects(): KeyProject[] {
       category: "integration",
     },
     {
-      title: "Zapier Platform",
+      title: "Notification & Observability System",
       description:
-        "Sole developer of complete Zapier integration — 9 trigger modules connecting platform to 5000+ apps.",
-      tech: ["Node.js", "Zapier Platform", "Webhooks"],
+        "Architected centralized notification service — 47+ events across 6 subsystems, provider-agnostic dispatcher, webhook delivery tracking.",
+      tech: ["Node.js", "Event-Driven Architecture", "SNS", "SQS", "React"],
       category: "architecture",
     },
     {

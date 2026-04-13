@@ -26,11 +26,11 @@ function getHighlights(company: string): Highlight[] {
         tech: ["Node.js", "Sequelize", "MySQL", "Stripe"],
       },
       {
-        title: "Zapier Integration — Sole Developer",
+        title: "External Integrations — Zapier & CRM",
         summary:
-          "Built 9 trigger modules connecting the platform to 5,000+ apps. Designed the trigger/action model end-to-end.",
+          "Zapier: 9 trigger modules connecting platform to 5,000+ apps. GHL: real-time event tracking, customer tagging, bulk import, encrypted API key storage.",
         category: "integration",
-        tech: ["Node.js", "Zapier Platform", "Webhooks"],
+        tech: ["Node.js", "Zapier Platform", "GoHighLevel API", "Webhooks"],
       },
       {
         title: "AI Receipt Pipeline",
@@ -40,11 +40,11 @@ function getHighlights(company: string): Highlight[] {
         tech: ["AWS Textract", "AWS S3", "Node.js", "SendGrid"],
       },
       {
-        title: "GoHighLevel CRM Integration",
+        title: "Notification & Observability Infrastructure",
         summary:
-          "End-to-end CRM sync — real-time event tracking, customer tagging, bulk import, encrypted API key storage.",
-        category: "integration",
-        tech: ["Node.js", "GoHighLevel API", "AWS Lambda"],
+          "Centralized notification service — 47+ events across 6 subsystems, registry-driven dispatcher, webhook delivery tracking with provider audit trails.",
+        category: "architecture",
+        tech: ["Node.js", "Event-Driven Architecture", "SNS", "SQS"],
       },
       {
         title: "Marketplace Data Platform",
