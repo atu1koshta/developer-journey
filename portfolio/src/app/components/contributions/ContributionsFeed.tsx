@@ -75,12 +75,17 @@ export default function ContributionsFeed({
 
   return (
     <section id="contributions" className="section-padding max-w-6xl mx-auto">
-      <h2 className="text-3xl font-bold mb-8">
-        All Contributions{" "}
-        <span className="text-lg font-normal text-accent">
-          ({filtered.length})
-        </span>
-      </h2>
+      <div className="mb-12">
+        <h2 className="text-4xl font-bold mb-4">
+          Detailed Contributions{" "}
+          <span className="text-lg font-normal text-accent">
+            ({filtered.length})
+          </span>
+        </h2>
+        <p className="text-secondary dark:text-muted text-lg">
+          Complete breakdown of work across architecture, security, integrations, and team leadership initiatives.
+        </p>
+      </div>
       <FilterBar
         categories={categories}
         techTags={techTags}

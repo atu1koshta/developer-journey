@@ -103,13 +103,21 @@ export function getStats(): StatItem[] {
     (c) => c.categories.includes("architecture")
   ).length;
 
+  const securityFocused = contributions.filter(
+    (c) => c.categories.includes("security")
+  ).length;
+
+  const integrated = contributions.filter(
+    (c) => c.categories.includes("integration")
+  ).length;
+
   return [
     { label: "Contributions", value: contributions.length, suffix: "+" },
     { label: "Systems Architected", value: architected, suffix: "" },
-    { label: "Systems Built", value: 18, suffix: "" },
+    { label: "Security-Focused", value: securityFocused, suffix: "" },
+    { label: "Integrations", value: integrated, suffix: "" },
     { label: "Companies", value: companies.size, suffix: "" },
     { label: "Technologies", value: allTech.size, suffix: "+" },
-    { label: "Dashboard Speedup", value: 80, suffix: "%" },
   ];
 }
 

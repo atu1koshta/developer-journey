@@ -1,25 +1,22 @@
 import type { Skills } from "@/lib/types";
-import { SKILL_CATEGORY_LABELS } from "@/lib/constants";
 import SectionWrapper from "../layout/SectionWrapper";
 import SkillRadarChart from "./SkillRadarChart";
-import SkillCategoryGroup from "./SkillCategoryGroup";
 
 export default function SkillsSection({ skills }: { skills: Skills }) {
   return (
     <SectionWrapper id="skills">
-      <h2 className="text-3xl font-bold mb-8">Skills & Technologies</h2>
-      <div className="grid lg:grid-cols-2 gap-8 items-start">
-        <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-4">
-          <SkillRadarChart skills={skills} />
+      <div className="max-w-4xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold mb-4">Core Expertise</h2>
+          <p className="text-secondary dark:text-muted text-lg max-w-2xl mx-auto">
+            Proficiency across full-stack development, cloud infrastructure, and solutions architecture. Built on 5+ years of production experience.
+          </p>
         </div>
-        <div>
-          {Object.entries(skills).map(([key, items]) => (
-            <SkillCategoryGroup
-              key={key}
-              label={SKILL_CATEGORY_LABELS[key] || key}
-              skills={items}
-            />
-          ))}
+
+        <div className="flex justify-center">
+          <div className="w-full max-w-2xl rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <SkillRadarChart skills={skills} />
+          </div>
         </div>
       </div>
     </SectionWrapper>

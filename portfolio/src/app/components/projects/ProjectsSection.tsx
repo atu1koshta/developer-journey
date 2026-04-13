@@ -9,11 +9,18 @@ export default function ProjectsSection({
 }) {
   return (
     <SectionWrapper id="projects">
-      <h2 className="text-3xl font-bold mb-8">Key Projects</h2>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.map((project, i) => (
-          <ProjectCard key={i} project={project} />
-        ))}
+      <div className="max-w-7xl mx-auto">
+        <div className="mb-12">
+          <h2 className="text-4xl font-bold mb-4">Featured Systems</h2>
+          <p className="text-secondary dark:text-muted text-lg">
+            Architected solutions delivering measurable business impact across authentication, payments, data processing, and observability.
+          </p>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project, i) => (
+            <ProjectCard key={i} project={project} />
+          ))}
+        </div>
       </div>
     </SectionWrapper>
   );

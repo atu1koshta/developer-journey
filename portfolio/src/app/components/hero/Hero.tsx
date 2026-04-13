@@ -14,20 +14,31 @@ export default function Hero({ profile }: { profile: Profile }) {
     >
       <CodeBackground />
 
-      <div className="relative z-20 max-w-3xl text-center">
-        <motion.h1
+      <div className="relative z-20 max-w-4xl text-center">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 text-white"
+          className="mb-6 inline-block"
+        >
+          <span className="px-4 py-2 rounded-full text-sm font-medium bg-white/5 border border-white/10 text-gray-300 backdrop-blur-sm">
+            Solutions-Focused Software Engineer
+          </span>
+        </motion.div>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-6 text-white"
         >
           {profile.name}
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="text-xl sm:text-2xl text-gray-300 mb-4"
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-2xl sm:text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-400 mb-6"
         >
           {profile.title}
         </motion.p>
@@ -35,7 +46,7 @@ export default function Hero({ profile }: { profile: Profile }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto mb-8"
+          className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed"
         >
           {profile.tagline}
         </motion.p>
