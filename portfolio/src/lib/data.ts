@@ -45,34 +45,58 @@ export function getSkills(): Skills {
 export function getDerivedSkillProficiency(): Record<string, number> {
   const contributions = getAllContributions();
 
-  // Weight for each category (reflects importance/impact)
-  const categoryWeights: Record<string, number> = {
-    architecture: 3,
-    security: 2.5,
-    integration: 2,
-    devops: 2,
-    improvement: 1.5,
-    performance: 2,
-    feature: 1.5,
-    testing: 1,
-    mentorship: 1,
-    research: 1,
-    bugfix: 0.5,
-    documentation: 0.5,
+  // Count raw contribution frequency by category
+  const categoryFrequency: Record<string, number> = {};
+  contributions.forEach((contribution) => {
+    contribution.categories.forEach((cat) => {
+      categoryFrequency[cat] = (categoryFrequency[cat] || 0) + 1;
+    });
+  });
+
+  // Map contribution categories to skill categories with impact multipliers
+  // This reflects how core each contribution type is to the skill
+  const categoryToSkills: Record<string, Array<{ skill: string; weight: number }>> = {
+    architecture: [
+      { skill: "architecture", weight: 3 },
+      { skill: "solutions_architecture", weight: 2.5 },
+      { skill: "api_design", weight: 1.5 },
+      { skill: "backend", weight: 1.5 },
+    ],
+    security: [
+      { skill: "auth_security", weight: 3 },
+      { skill: "architecture", weight: 1.5 },
+      { skill: "api_design", weight: 1 },
+    ],
+    integration: [
+      { skill: "integrations", weight: 3 },
+      { skill: "api_design", weight: 1.5 },
+      { skill: "backend", weight: 1 },
+    ],
+    devops: [
+      { skill: "cloud_devops", weight: 3 },
+      { skill: "architecture", weight: 1 },
+      { skill: "caching_queuing", weight: 1.5 },
+    ],
+    feature: [
+      { skill: "backend", weight: 2 },
+      { skill: "frontend", weight: 1.5 },
+    ],
+    testing: [
+      { skill: "testing", weight: 3 },
+      { skill: "backend", weight: 1.5 },
+    ],
+    improvement: [
+      { skill: "architecture", weight: 2 },
+      { skill: "solutions_architecture", weight: 1.5 },
+      { skill: "testing", weight: 1 },
+    ],
+    performance: [
+      { skill: "caching_queuing", weight: 2.5 },
+      { skill: "cloud_devops", weight: 1.5 },
+    ],
   };
 
-  // Calculate score for each skill category (from SKILL_CATEGORY_LABELS mapping)
-  const categoryToSkillKey: Record<string, string> = {
-    // Map contribution categories to skill categories
-    "architecture": "architecture",
-    "security": "auth_security",
-    "integration": "integrations",
-    "devops": "cloud_devops",
-    "performance": "caching_queuing",
-    "testing": "testing",
-    "improvement": "architecture",
-  };
-
+  // Initialize all skill scores
   const skillScores: Record<string, number> = {
     cloud_devops: 0,
     backend: 0,
@@ -88,25 +112,41 @@ export function getDerivedSkillProficiency(): Record<string, number> {
     solutions_architecture: 0,
   };
 
-  // Count weighted contributions per category
-  contributions.forEach((contribution) => {
-    contribution.categories.forEach((cat) => {
-      const weight = categoryWeights[cat] || 1;
-      const skillKey = categoryToSkillKey[cat];
-
-      if (skillKey) {
-        skillScores[skillKey] = (skillScores[skillKey] || 0) + weight;
-      }
+  // Score based on contribution frequency and impact
+  Object.entries(categoryFrequency).forEach(([category, frequency]) => {
+    const skillMappings = categoryToSkills[category] || [];
+    skillMappings.forEach(({ skill, weight }) => {
+      skillScores[skill] = (skillScores[skill] || 0) + frequency * weight;
     });
   });
 
-  // Normalize scores to 1-10 scale
+  // Add base scores for core technologies based on usage across contributions
+  // Backend is heavily used throughout
+  skillScores.backend = Math.max(skillScores.backend, contributions.length * 1.5);
+
+  // Databases used throughout
+  skillScores.databases = Math.max(skillScores.databases, contributions.length * 1.2);
+
+  // AI processing appears in some key contributions
+  const aiContributions = contributions.filter(c => c.tech?.some(t =>
+    t.includes("Textract") || t.includes("crawl4ai") || t.includes("OCR")
+  )).length;
+  skillScores.ai_processing = Math.max(skillScores.ai_processing, aiContributions * 2);
+
+  // Normalize scores to 1-10 scale with better distribution
   const maxScore = Math.max(...Object.values(skillScores));
+  const minScore = Math.min(...Object.values(skillScores).filter(s => s > 0));
   const normalizedScores: Record<string, number> = {};
 
   Object.entries(skillScores).forEach(([key, score]) => {
-    // Scale to 5-10 range (minimum 5 for any active category, max 10)
-    normalizedScores[key] = Math.max(3, Math.round((score / maxScore) * 10));
+    if (score === 0) {
+      // Skill with no contributions gets base score
+      normalizedScores[key] = 3;
+    } else {
+      // Scale active skills from 5-10 range with better distribution
+      const normalized = 5 + ((score - minScore) / (maxScore - minScore)) * 5;
+      normalizedScores[key] = Math.round(normalized);
+    }
   });
 
   return normalizedScores;
