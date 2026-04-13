@@ -10,6 +10,7 @@ export const SKILL_CATEGORY_LABELS: Record<string, string> = {
   integrations: "Integrations",
   ai_processing: "AI & Processing",
   architecture: "Architecture",
+  solutions_architecture: "Solutions Architecture",
 };
 
 // Skill proficiency levels (1–10) used by the radar chart.

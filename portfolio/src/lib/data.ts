@@ -41,6 +41,77 @@ export function getSkills(): Skills {
   return data.skills;
 }
 
+// Derive proficiency scores from actual contribution data
+export function getDerivedSkillProficiency(): Record<string, number> {
+  const contributions = getAllContributions();
+
+  // Weight for each category (reflects importance/impact)
+  const categoryWeights: Record<string, number> = {
+    architecture: 3,
+    security: 2.5,
+    integration: 2,
+    devops: 2,
+    improvement: 1.5,
+    performance: 2,
+    feature: 1.5,
+    testing: 1,
+    mentorship: 1,
+    research: 1,
+    bugfix: 0.5,
+    documentation: 0.5,
+  };
+
+  // Calculate score for each skill category (from SKILL_CATEGORY_LABELS mapping)
+  const categoryToSkillKey: Record<string, string> = {
+    // Map contribution categories to skill categories
+    "architecture": "architecture",
+    "security": "auth_security",
+    "integration": "integrations",
+    "devops": "cloud_devops",
+    "performance": "caching_queuing",
+    "testing": "testing",
+    "improvement": "architecture",
+  };
+
+  const skillScores: Record<string, number> = {
+    cloud_devops: 0,
+    backend: 0,
+    frontend: 0,
+    auth_security: 0,
+    databases: 0,
+    caching_queuing: 0,
+    testing: 0,
+    api_design: 0,
+    integrations: 0,
+    ai_processing: 0,
+    architecture: 0,
+    solutions_architecture: 0,
+  };
+
+  // Count weighted contributions per category
+  contributions.forEach((contribution) => {
+    contribution.categories.forEach((cat) => {
+      const weight = categoryWeights[cat] || 1;
+      const skillKey = categoryToSkillKey[cat];
+
+      if (skillKey) {
+        skillScores[skillKey] = (skillScores[skillKey] || 0) + weight;
+      }
+    });
+  });
+
+  // Normalize scores to 1-10 scale
+  const maxScore = Math.max(...Object.values(skillScores));
+  const normalizedScores: Record<string, number> = {};
+
+  Object.entries(skillScores).forEach(([key, score]) => {
+    // Scale to 5-10 range (minimum 5 for any active category, max 10)
+    normalizedScores[key] = Math.max(3, Math.round((score / maxScore) * 10));
+  });
+
+  return normalizedScores;
+}
+
 const MONTH_MAP: Record<string, number> = {
   Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
   Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11,
