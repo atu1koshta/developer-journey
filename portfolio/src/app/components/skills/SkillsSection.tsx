@@ -1,11 +1,9 @@
 import type { Skills } from "@/lib/types";
-import { getDerivedSkillProficiency } from "@/lib/data";
+import { SKILL_PROFICIENCY } from "@/lib/constants";
 import SectionWrapper from "../layout/SectionWrapper";
 import SkillRadarChart from "./SkillRadarChart";
 
 export default function SkillsSection({ skills }: { skills: Skills }) {
-  const proficiencyScores = getDerivedSkillProficiency();
-
   return (
     <SectionWrapper id="skills">
       <div className="max-w-5xl mx-auto">
@@ -17,7 +15,7 @@ export default function SkillsSection({ skills }: { skills: Skills }) {
         </div>
 
         <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-8 shadow-lg">
-          <SkillRadarChart skills={skills} proficiencyScores={proficiencyScores} />
+          <SkillRadarChart skills={skills} proficiencyScores={SKILL_PROFICIENCY} />
         </div>
       </div>
     </SectionWrapper>
