@@ -26,7 +26,7 @@ export default function ContributionsFeed({
 
   const filtered = useMemo(() => {
     return contributions.filter((c) => {
-      if (selectedCategory && c.category !== selectedCategory) return false;
+      if (selectedCategory && !c.categories.includes(selectedCategory)) return false;
       if (selectedTech && !c.tech.includes(selectedTech)) return false;
       if (
         searchQuery &&

@@ -100,7 +100,7 @@ export function getStats(): StatItem[] {
   );
 
   const architected = contributions.filter(
-    (c) => c.category === "architecture"
+    (c) => c.categories.includes("architecture")
   ).length;
 
   return [
@@ -120,49 +120,51 @@ export function getKeyProjects(): KeyProject[] {
       description:
         "Designed and owned the entire auth module — OTP login, Keycloak SSO, NGINX/Lua proxy, multi-portal JWT management.",
       tech: ["Node.js", "Keycloak", "NGINX", "Lua", "JWT", "OAuth2"],
-      category: "architecture",
+      categories: ["architecture"],
     },
     {
       title: "GoHighLevel CRM Integration",
       description:
         "Built end-to-end CRM integration — customer sync, event tracking, tag management, bulk import, webhook automation.",
       tech: ["Node.js", "GoHighLevel API", "Webhooks", "AWS Lambda"],
-      category: "integration",
+      categories: ["integration"],
     },
     {
       title: "Notification & Observability System",
       description:
         "Architected centralized notification service — 47+ events across 6 subsystems, provider-agnostic dispatcher, webhook delivery tracking.",
       tech: ["Node.js", "Event-Driven Architecture", "SNS", "SQS", "React"],
-      category: "architecture",
+      categories: ["architecture"],
     },
     {
       title: "OCR Receipt Pipeline",
       description:
         "Built AI-powered receipt processing — upload, Textract OCR, data extraction, approval workflow, notifications.",
       tech: ["AWS Textract", "AWS S3", "Node.js", "SendGrid"],
-      category: "feature",
+      categories: ["feature"],
     },
     {
       title: "Wallet & Ledger System",
       description:
         "Migrated platform to double-entry bookkeeping, built wallet with credit/debit, auto-recharge, and brand-level config.",
       tech: ["Node.js", "Sequelize", "MySQL", "Stripe"],
-      category: "architecture",
+      categories: ["architecture"],
     },
     {
       title: "Marketplace Data Platform",
       description:
         "Architected new scraping platform with crawl4ai — parallel scraping, data normalization, S3 storage, restaurant registry.",
       tech: ["Python", "crawl4ai", "AWS S3", "MySQL"],
-      category: "architecture",
+      categories: ["architecture"],
     },
   ];
 }
 
 export function getCategories(): string[] {
   const contributions = getAllContributions();
-  return [...new Set(contributions.map((c) => c.category))].sort();
+  const categories = new Set<string>();
+  contributions.forEach((c) => c.categories.forEach((cat) => categories.add(cat)));
+  return [...categories].sort();
 }
 
 export function getAllTechTags(): string[] {

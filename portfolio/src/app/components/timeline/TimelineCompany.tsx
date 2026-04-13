@@ -4,7 +4,7 @@ import { CATEGORY_COLORS } from "@/lib/constants";
 interface Highlight {
   title: string;
   summary: string;
-  category: string;
+  categories: string[];
   tech: string[];
 }
 
@@ -15,56 +15,56 @@ function getHighlights(company: string): Highlight[] {
         title: "Auth System — Full Ownership",
         summary:
           "Designed the entire auth module across all portals: OTP login, Keycloak SSO, NGINX/Lua proxy gateway, JWT management.",
-        category: "architecture",
+        categories: ["architecture"],
         tech: ["Node.js", "Keycloak", "NGINX", "Lua", "OAuth2"],
       },
       {
         title: "Wallet & Double-Entry Ledger",
         summary:
           "Migrated financial system to double-entry bookkeeping. Built wallet with credit/debit, auto-recharge, and brand-level config.",
-        category: "architecture",
+        categories: ["architecture"],
         tech: ["Node.js", "Sequelize", "MySQL", "Stripe"],
       },
       {
         title: "External Integrations — Zapier & CRM",
         summary:
           "Zapier: 9 trigger modules connecting platform to 5,000+ apps. GHL: real-time event tracking, customer tagging, bulk import, encrypted API key storage.",
-        category: "integration",
+        categories: ["integration"],
         tech: ["Node.js", "Zapier Platform", "GoHighLevel API", "Webhooks"],
       },
       {
         title: "AI Receipt Pipeline",
         summary:
           "Built receipt-to-rewards pipeline from scratch — upload, AWS Textract OCR, AI parsing, operator approval workflow.",
-        category: "feature",
+        categories: ["feature"],
         tech: ["AWS Textract", "AWS S3", "Node.js", "SendGrid"],
       },
       {
         title: "Notification & Observability Infrastructure",
         summary:
           "Centralized notification service — 47+ events across 6 subsystems, registry-driven dispatcher, webhook delivery tracking with provider audit trails.",
-        category: "architecture",
+        categories: ["architecture"],
         tech: ["Node.js", "Event-Driven Architecture", "SNS", "SQS"],
       },
       {
         title: "Marketplace Data Platform",
         summary:
           "Architected new scraping system with crawl4ai — parallel scraping, data normalization, S3 storage, restaurant registry.",
-        category: "architecture",
+        categories: ["architecture"],
         tech: ["Python", "crawl4ai", "AWS S3"],
       },
       {
         title: "Brand Hierarchy Architecture",
         summary:
           "Leading Brand-Group-Store restructure — schema migration, Points Tracking Config, Franchise Groups, Brand Mapper facade.",
-        category: "architecture",
+        categories: ["architecture"],
         tech: ["Node.js", "Sequelize", "MySQL"],
       },
       {
         title: "Scraping Pipeline Decoupling",
         summary:
           "Two iterations of decoupling scraping from DB. Built processors for MonkeyMedia, Olo, and marketplace order ingestion.",
-        category: "architecture",
+        categories: ["architecture"],
         tech: ["Node.js", "AWS SQS", "Lambda"],
       },
     ],
@@ -73,14 +73,14 @@ function getHighlights(company: string): Highlight[] {
         title: "80% Dashboard Speedup",
         summary:
           "Optimized dashboard load time through Redis caching, cutting response times by 80%.",
-        category: "performance",
+        categories: ["performance"],
         tech: ["Redis", "Python", "Flask"],
       },
       {
         title: "User Activity Tracker",
         summary:
           "Built engagement monitoring system for digital marketing campaigns with scheduled Facebook Graph API integration.",
-        category: "feature",
+        categories: ["feature"],
         tech: ["Python", "Flask", "MySQL", "Celery"],
       },
     ],
@@ -89,7 +89,7 @@ function getHighlights(company: string): Highlight[] {
         title: "50% API Response Improvement",
         summary:
           "Engineered algorithm to batch-update user progress across groups, halving API response times.",
-        category: "performance",
+        categories: ["performance"],
         tech: ["Node.js", "MongoDB"],
       },
     ],
@@ -98,7 +98,7 @@ function getHighlights(company: string): Highlight[] {
         title: "Enterprise QA Leadership",
         summary:
           "Collaborated across cross-functional teams on quality assurance for enterprise software products.",
-        category: "testing",
+        categories: ["testing"],
         tech: ["QA", "Manual Testing"],
       },
     ],
@@ -133,21 +133,25 @@ export default function TimelineCompany({
 
       <div className="ml-2 grid gap-4 sm:grid-cols-2">
         {highlights.map((h, i) => {
-          const badgeClass =
-            CATEGORY_COLORS[h.category] ||
-            "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300";
-
           return (
             <div
               key={i}
               className="group relative p-4 rounded-xl border border-[var(--border)] bg-[var(--surface)] hover:border-accent/60 transition-colors"
             >
-              <div className="flex items-center gap-2 mb-2">
-                <span
-                  className={`px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded-full ${badgeClass}`}
-                >
-                  {h.category}
-                </span>
+              <div className="flex items-center gap-2 mb-2 flex-wrap">
+                {h.categories.map((cat) => {
+                  const badgeClass =
+                    CATEGORY_COLORS[cat] ||
+                    "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300";
+                  return (
+                    <span
+                      key={cat}
+                      className={`px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded-full ${badgeClass}`}
+                    >
+                      {cat}
+                    </span>
+                  );
+                })}
               </div>
               <h4 className="font-semibold text-sm mb-1 group-hover:text-accent transition-colors">
                 {h.title}

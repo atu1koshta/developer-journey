@@ -94,15 +94,15 @@ experience:
     theme: "Loyalty Program Foundation"
     contributions:
     - what: Architected and owned complete authentication & registration system serving 552+ customers with 87.5% email verification across multi-portal loyalty platform — integrated Keycloak SSO, NGINX/Lua proxy, OTP-based login, and JWT management
-      category: architecture
+      categories: [architecture, security]
       tech: [Node.js, Express, Keycloak, NGINX, Lua, JWT, OAuth2]
       impact: Foundation for customer lifecycle management and enrollment across 3 portals
     - what: Standardized customer data layer with consistent API contracts, verification workflows, and uniqueness validation — serving as single source of truth for all downstream services
-      category: architecture
+      categories: [architecture]
       tech: [Node.js, Express, Sequelize, MySQL]
       impact: Enabled reliable customer identity for CRM integration, payments, and loyalty tracking
     - what: Drove end-to-end GoHighLevel CRM integration with real-time event tracking and bulk customer import — architected event-driven system pushing customer, order, and reward events to CRM for automated campaigns and analytics
-      category: architecture
+      categories: [architecture, integration]
       tech: [Node.js, Express, GoHighLevel API, Event-Driven Architecture, MySQL]
       impact: Full customer lifecycle visibility in CRM; enabled segment-aware tagging and targeted campaigns
 
@@ -110,11 +110,11 @@ experience:
     theme: "Order Processing & Data Ingestion Pipeline"
     contributions:
     - what: Designed and executed iterative decoupling of database dependency from scraping pipeline across two releases — eliminated DB bottlenecks and enabled independent scaling of order ingestion and storage layers
-      category: architecture
+      categories: [architecture, devops]
       tech: [Node.js, Sequelize, AWS SQS, Lambda, Web Scraping]
       impact: Non-blocking multi-source order processing from marketplace and POS platforms without DB contention
     - what: Architected automated order ingestion supporting MonkeyMedia, Olo, and marketplace scrapers with async queue-based processing — implemented SQS consumers for reliable, scalable order collection
-      category: architecture
+      categories: [architecture, integration]
       tech: [Node.js, AWS SQS, Lambda, Web Scraping]
       impact: Multi-platform order aggregation enabling unified rewards processing
 
@@ -122,7 +122,7 @@ experience:
     theme: "Receipt Verification & Order Authentication"
     contributions:
     - what: Owned end-to-end receipt upload and AI-powered OCR processing pipeline — designed schema, built S3 upload APIs, integrated AWS Textract for data extraction, and implemented operator approval workflow with 83% approval rate
-      category: architecture
+      categories: [architecture, feature, security]
       tech: [Node.js, Express, AWS Textract, AWS S3, MySQL, SendGrid]
       impact: Validates order authenticity for customer loyalty verification; eliminates manual order review overhead
 
@@ -130,11 +130,11 @@ experience:
     theme: "Financial System Modernization"
     contributions:
     - what: Led research, design, and implementation of migrating platform ledger from single-entry to double-entry bookkeeping system — designed journal_entries schema, implemented accounting-grade transaction logic with comprehensive unit tests, and enabled accurate revenue recognition
-      category: architecture
+      categories: [architecture, improvement]
       tech: [Node.js, Jest, Sequelize, MySQL]
       impact: Tracking $13.5K+ in platform revenue across 3 streams (subscription, breakage, processing fees) with 776 compliant journal entries
     - what: Designed and delivered wallet system end-to-end managing $5K+ in customer prepaid balances — engineered credit/debit engine, fund isolation rules, auto-recharge capability, and brand-level configuration
-      category: architecture
+      categories: [architecture, security]
       tech: [Node.js, Express, Stripe, Sequelize, MySQL, SendGrid]
       impact: Foundation for recurring revenue model and B2B payments at scale; 7.4x monthly revenue growth from baseline
 
@@ -142,11 +142,11 @@ experience:
     theme: "Marketplace & Multi-Brand Expansion"
     contributions:
     - what: Architected new Marketplace data ingestion platform from scratch with modular structure separating Scraper and AI modules — designed standardized catering menu JSON schema for unified data ingestion across multiple marketplace platforms
-      category: architecture
+      categories: [architecture, devops]
       tech: [Python, crawl4ai, AWS S3, MySQL, JSON Schema]
       impact: Foundation for multi-platform marketplace aggregation; enables consistent menu representation regardless of source
     - what: Led Brand-Group-Store architecture enabling multi-brand and multi-franchise support — designed brand hierarchy schema, implemented franchise group management, and introduced Brand Mapper facade pattern
-      category: architecture
+      categories: [architecture]
       tech: [Node.js, Sequelize, MySQL]
       impact: Platform foundation for scaling to multi-brand restaurant groups
 
@@ -154,11 +154,11 @@ experience:
     theme: "Notification & Observability Infrastructure"
     contributions:
     - what: Architected centralized notification service refactoring from scattered imperative calls into registry-driven dispatcher with provider-agnostic channels — migrated 47+ notification events across 6 subsystems (authentication, user management, customer lifecycle, orders/payments, gift cards, campaigns)
-      category: architecture
+      categories: [architecture, devops]
       tech: [Node.js, Event-Driven Architecture, Provider Abstraction, Sequelize]
       impact: Unified notification dispatch; enables consistent delivery tracking and compliance audit trails
     - what: Designed and implemented inbound notification webhook system with provider-based delivery tracking — built webhook provider detection, ECDSA signature verification (SendGrid), and admin notification logs UI with event filtering and pagination
-      category: architecture
+      categories: [architecture, devops, security]
       tech: [Node.js, Express, Webhooks, SNS, SQS, React, Factory Pattern]
       impact: Full delivery audit trail across multiple providers; supports SendGrid, MSG91 with extensible pattern
 
@@ -166,23 +166,23 @@ experience:
     theme: "Security, Developer Velocity & Team Leadership"
     contributions:
     - what: Secured API surface by implementing IP-based rate limiting on public endpoints with Redis-backed distributed store and exponential backoff for sensitive operations (OTP, login, password reset)
-      category: security
+      categories: [security, architecture]
       tech: [Node.js, Express, Redis]
       impact: Protected against automated abuse and DDoS attacks on critical authentication paths
     - what: Led migration from legacy GUID-based customer identification to secure customer IDs across all API surfaces — eliminated information disclosure vulnerabilities in public APIs
-      category: security
+      categories: [security]
       tech: [Node.js, Express]
       impact: Improved API security posture for production systems
     - what: Mandated Test-Driven Development (TDD) across critical platform systems — drove test coverage progression from 0% to 70%+ in financial, wallet, and payment modules through code review enforcement and developer ramp-up
-      category: improvement
+      categories: [improvement, architecture]
       tech: [Jest, Supertest, Node.js, Git, CI/CD]
       impact: Reduced production bugs by enforcing quality gates; established testing culture and improved codebase reliability across team
     - what: Owned complete Zapier workflow automation integration as sole developer — designed 9 trigger modules across customer, order, and reward events, connecting platform to 5000+ external applications
-      category: architecture
+      categories: [architecture, integration]
       tech: [Node.js, Zapier Platform, Webhooks]
       impact: Enabled external workflow automation across full customer and rewards lifecycle
     - what: Established backend onboarding process with structured code walkthroughs and knowledge transfer — created repeatable playbook for new developer ramp-up
-      category: mentorship
+      categories: [mentorship]
       tech: [Node.js, Git, Documentation]
       impact: Accelerated new team member onboarding
 
@@ -196,11 +196,11 @@ experience:
     theme: Digital Marketing Platform
     contributions:
     - what: Designed user engagement tracking system for campaign performance measurement
-      category: feature
+      categories: [feature, architecture]
       tech: [Python, Flask, MySQL]
       impact: Data-driven campaign optimization through engagement analytics
     - what: Optimized dashboard load time by 80% through Redis caching strategy
-      category: performance
+      categories: [performance, architecture]
       tech: [Redis, Python, Flask]
       impact: 80% reduction in dashboard load time
 
@@ -214,7 +214,7 @@ experience:
     theme: EdTech Platform
     contributions:
     - what: Engineered algorithm to update user progress across multiple groups
-      category: performance
+      categories: [performance, architecture]
       tech: [Node.js, MongoDB]
       impact: ~50% reduction in API response time
 
@@ -228,6 +228,6 @@ experience:
     theme: Enterprise QA
     contributions:
     - what: Owned end-to-end QA validation across cross-functional enterprise software releases
-      category: testing
+      categories: [testing]
       tech: [QA, Manual Testing]
       impact: Delivered release-ready quality gates across enterprise product lines

@@ -1,6 +1,6 @@
 export interface Contribution {
   what: string;
-  category: string;
+  categories: string[];
   tech: string[];
   impact: string;
 }
@@ -66,5 +66,5 @@ export interface KeyProject {
   title: string;
   description: string;
   tech: string[];
-  category: string;
+  categories: string[];
 }

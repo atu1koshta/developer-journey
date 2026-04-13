@@ -6,18 +6,22 @@ export default function ContributionItem({
 }: {
   contribution: FlatContribution;
 }) {
-  const badgeClass =
-    CATEGORY_COLORS[contribution.category] ||
-    "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300";
-
   return (
     <div className="p-4 rounded-lg border border-[var(--border)] bg-[var(--surface)]">
       <div className="flex flex-wrap items-start gap-2 mb-2">
-        <span
-          className={`inline-block px-2 py-0.5 text-xs font-medium rounded-full ${badgeClass}`}
-        >
-          {contribution.category}
-        </span>
+        {contribution.categories.map((cat) => {
+          const badgeClass =
+            CATEGORY_COLORS[cat] ||
+            "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300";
+          return (
+            <span
+              key={cat}
+              className={`inline-block px-2 py-0.5 text-xs font-medium rounded-full ${badgeClass}`}
+            >
+              {cat}
+            </span>
+          );
+        })}
         <span className="text-xs text-accent">
           {contribution.company} &middot; {contribution.period}
         </span>
