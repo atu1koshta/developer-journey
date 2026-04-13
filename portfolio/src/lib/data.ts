@@ -99,14 +99,14 @@ export function getStats(): StatItem[] {
     readYaml().experience.map((e) => e.company)
   );
 
-  const features = contributions.filter(
-    (c) => c.category === "feature"
+  const architected = contributions.filter(
+    (c) => c.category === "architecture"
   ).length;
 
   return [
     { label: "Contributions", value: contributions.length, suffix: "+" },
+    { label: "Systems Architected", value: architected, suffix: "" },
     { label: "Systems Built", value: 18, suffix: "" },
-    { label: "Features Shipped", value: features, suffix: "+" },
     { label: "Companies", value: companies.size, suffix: "" },
     { label: "Technologies", value: allTech.size, suffix: "+" },
     { label: "Dashboard Speedup", value: 80, suffix: "%" },
