@@ -25,33 +25,28 @@
 
 ## HAR LLC — Software Engineer (Contract) | Sept 2024 – Present
 
-**Project:** Catering Rewards Platform
+**Project:** Catering Rewards Platform — Event-driven microservices platform serving 552+ customers across multi-brand restaurant groups — architected end-to-end loyalty, financial operations, and order processing with $13.5K+ revenue tracked through double-entry accounting.
 
 ---
 
-### Sep – Nov 2024 | Authentication & User Management
+### EPIC 1: Loyalty Program Foundation (Sep 2024 – Mar 2025)
 
-- `[architecture]` Designed and owned the entire authentication module for the platform — **Tech:** Node.js, Express, Keycloak, NGINX, Lua — **Impact:** Single ownership of auth across all portals
+**Authentication & User Management (Sep – Nov 2024)**
+- `[architecture]` Designed and owned the entire authentication module for the platform — OTP-based login, multi-portal support, and Keycloak integration — **Tech:** Node.js, Express, Keycloak, NGINX, Lua, JWT — **Impact:** Single ownership of auth across all portals with multi-channel authentication
+- `[architecture]` Architected NGINX proxy service layer integrating with Keycloak for secure API authentication — **Tech:** NGINX, Lua, Keycloak, OAuth2 — **Impact:** Centralized auth gateway for all API traffic
 - `[feature]` Built phone number and email-based login with OTP verification for user-facing and restaurant operator portals — **Tech:** Node.js, Express, Keycloak, JWT — **Impact:** Enabled multi-channel authentication for all user types
 - `[feature]` Implemented complete user sign-up flow with first name, last name, work email, personal email, password, phone number, and email/phone verification — **Tech:** Node.js, Express, Sequelize, MySQL — **Impact:** Full self-service user registration
-- `[architecture]` Architected NGINX proxy service layer integrating with Keycloak for secure API authentication — **Tech:** NGINX, Lua, Keycloak, OAuth2 — **Impact:** Centralized auth gateway for all API traffic
 - `[feature]` Built proxy layer for customer-facing APIs — **Tech:** NGINX, Lua, Node.js — **Impact:** Secure API access for external clients
-- `[feature]` Implemented core login API, customer creation endpoint with validation, and customer details retrieval endpoint — **Tech:** Node.js, Express, Sequelize, MySQL — **Impact:** Foundation customer management APIs
 - `[bugfix]` Fixed auth issues — expired OTP acceptance, whitespace handling, resend code timing, verify button failures, navigation bugs — **Tech:** Node.js, Express — **Impact:** Stable and reliable authentication flow
 
----
-
-### Nov – Dec 2024 | Customer APIs & Data Integrity
-
+**Customer APIs & Data Integrity (Nov – Dec 2024)**
 - `[feature]` Built customer GUID retrieval API — lookup by phone number or email — **Tech:** Node.js, Express, Sequelize, MySQL — **Impact:** Enabled flexible customer lookup for downstream services
 - `[feature]` Implemented phone and email uniqueness validation during signup — **Tech:** Node.js, Sequelize, MySQL — **Impact:** Prevented duplicate account creation
+- `[feature]` Implemented core login API, customer creation endpoint with validation, and customer details retrieval endpoint — **Tech:** Node.js, Express, Sequelize, MySQL — **Impact:** Foundation customer management APIs
 - `[bugfix]` Fixed error handling — 409 for duplicate emails, proper codes for invalid phone numbers, empty last names, phone with spaces, incorrect error messages — **Tech:** Node.js, Express — **Impact:** Standardized API error responses across all customer endpoints
 - `[improvement]` Standardized API response formats and validation across all customer endpoints — **Tech:** Node.js, Express — **Impact:** Consistent API contract for all consumers
 
----
-
-### Jan 2025 | GoHighLevel CRM Integration — Phase 1
-
+**GoHighLevel CRM Integration Phase 1 (Jan 2025)**
 - `[research]` Researched GoHighLevel APIs for customer and location/subaccount management — **Tech:** GoHighLevel API — **Impact:** Defined integration approach and scope
 - `[architecture]` Designed DB schema changes for restaurant_store and customer tables to store API keys metadata and sync response data — **Tech:** MySQL, Sequelize — **Impact:** Data foundation for CRM integration
 - `[feature]` Built backend API calls for GoHighLevel and integrated with customer flow — **Tech:** Node.js, Express, GoHighLevel API — **Impact:** Real-time customer data sync to CRM
@@ -59,21 +54,7 @@
 - `[devops]` Set up AWS cron jobs for periodic data synchronization — **Tech:** AWS Lambda, Cron — **Impact:** Automated recurring data sync
 - `[testing]` Tested end-to-end integration with dummy restaurant and location data — **Tech:** GoHighLevel API, Node.js — **Impact:** Validated integration before production rollout
 
----
-
-### Jan – Feb 2025 | Scraping Architecture & POS Integrations
-
-- `[architecture]` Designed the scraping enhancement roadmap — **Tech:** Node.js — **Impact:** Clear technical direction for scraping improvements
-- `[architecture]` Decoupled database dependency from scraping pipeline for scalability (first iteration) — **Tech:** Node.js, Sequelize, AWS SQS — **Impact:** Scraping no longer blocked by DB bottlenecks
-- `[feature]` Built MonkeyMedia POS scraping processor — **Tech:** Node.js, Web Scraping — **Impact:** Automated order ingestion from MonkeyMedia POS
-- `[feature]` Built marketplace order ingestion processor — **Tech:** Node.js, AWS SQS — **Impact:** Automated marketplace order collection
-- `[feature]` Implemented order ingestion request queue consumer for async processing — **Tech:** Node.js, AWS SQS, Lambda — **Impact:** Non-blocking order processing pipeline
-- `[bugfix]` Fixed marketplace scraping failures and data issues — **Tech:** Node.js — **Impact:** Reliable marketplace data collection
-
----
-
-### Feb – Mar 2025 | GHL Event Tracking & Scraping Improvements
-
+**GHL Event Tracking & Scraping Improvements (Feb – Mar 2025)**
 - `[feature]` Implemented event tracking system pushing customer activities, order events, and reward events to GoHighLevel in real-time — **Tech:** Node.js, GoHighLevel API, Event-Driven Architecture — **Impact:** Real-time CRM visibility into all platform events
 - `[feature]` Built triggers for customer/contact, order, and reward events with unit tests — **Tech:** Node.js, Jest — **Impact:** Comprehensive event coverage for CRM
 - `[feature]` Implemented marketplace report processor and Olo POS processor — **Tech:** Node.js, Web Scraping — **Impact:** Two additional data source integrations
@@ -81,11 +62,11 @@
 - `[bugfix]` Fixed scraping stuck states, simultaneous conflicts, automation detection, and missing customer data — **Tech:** Node.js, Web Scraping — **Impact:** Stable and resilient scraping pipeline
 - `[feature]` Engineered bulk import of old customers (including EzCater) into GoHighLevel — **Tech:** Node.js, GoHighLevel API, MySQL — **Impact:** Migrated historical customer base to CRM
 - `[feature]` Implemented restaurant location deletion capability — **Tech:** Node.js, Express, Sequelize — **Impact:** Admin can manage restaurant lifecycle
+- `[feature]` Implemented tag tracking across Loyal, Non-Loyal, and Marketplace customer segments — **Tech:** Node.js, GoHighLevel API — **Impact:** Segment-aware tagging in CRM for targeted campaigns
+- `[feature]` Extended event tracking to non-signed-up and marketplace customer segments — **Tech:** Node.js, GoHighLevel API, Event-Driven Architecture — **Impact:** Full customer lifecycle visibility in CRM
+- `[mentorship]` Conducted knowledge transfer on NSU and marketplace user points data sync — **Impact:** Team upskilled on points sync logic
 
----
-
-### Mar – Apr 2025 | GHL Maturation & Security
-
+**GHL Maturation & Security (Mar – Apr 2025)**
 - `[feature]` Created API endpoint to retrieve GHL-synced data — **Tech:** Node.js, Express — **Impact:** Admin visibility into GHL sync status
 - `[feature]` Built admin UI enhancements for GHL configuration management — **Tech:** React, Node.js — **Impact:** Self-service GHL configuration for admins
 - `[security]` Implemented encrypted storage for GHL API keys with masked key display in responses — **Tech:** Node.js, Encryption — **Impact:** Secured sensitive CRM credentials at rest and in transit
@@ -95,7 +76,20 @@
 
 ---
 
-### Apr – May 2025 | Receipt Upload & OCR System
+### EPIC 2: Order Processing & Data Ingestion Pipeline (Jan – Feb 2025)
+
+- `[architecture]` Designed the scraping enhancement roadmap — **Tech:** Node.js — **Impact:** Clear technical direction for scraping improvements
+- `[architecture]` Designed and executed iterative decoupling of database dependency from scraping pipeline across two releases — eliminated DB bottlenecks and enabled independent scaling of order ingestion and storage layers — **Tech:** Node.js, Sequelize, AWS SQS, Lambda, Web Scraping — **Impact:** Scraping no longer blocked by DB bottlenecks; enabled independent scaling
+- `[feature]` Built MonkeyMedia POS scraping processor — **Tech:** Node.js, Web Scraping — **Impact:** Automated order ingestion from MonkeyMedia POS
+- `[feature]` Built marketplace order ingestion processor — **Tech:** Node.js, AWS SQS — **Impact:** Automated marketplace order collection
+- `[feature]` Implemented order ingestion request queue consumer for async processing — **Tech:** Node.js, AWS SQS, Lambda — **Impact:** Non-blocking order processing pipeline
+- `[bugfix]` Fixed marketplace scraping failures and data issues — **Tech:** Node.js — **Impact:** Reliable marketplace data collection
+- `[bugfix]` Fixed brand-specific POS login URLs, missing marketplace orders, simultaneous scraping conflicts — **Tech:** Node.js, Web Scraping — **Impact:** Stable multi-brand scraping
+- `[bugfix]` Fixed Lambda production error during model initialization blocking order processing — **Tech:** AWS Lambda, Sequelize — **Impact:** Unblocked production order processing
+
+---
+
+### EPIC 3: Receipt Verification & Order Authentication (Apr – May 2025)
 
 - `[architecture]` Built complete receipt upload and AI-powered processing pipeline from scratch — **Tech:** Node.js, Express, AWS Textract, AWS S3, MySQL — **Impact:** Fully automated receipt-to-rewards pipeline
 - `[feature]` Designed and executed receipt table database migration — **Tech:** Sequelize, MySQL — **Impact:** Data layer for receipt storage and processing
@@ -105,63 +99,16 @@
 - `[devops]` Configured and deployed receipt system infrastructure — **Tech:** AWS S3, AWS Lambda, Terraform — **Impact:** Production-ready receipt processing infra
 - `[documentation]` Created API documentation and flowcharts — **Tech:** OpenAPI, Mermaid — **Impact:** Clear reference for team and stakeholders
 - `[feature]` Built receipt submission approval notifications with conditional login requirement — **Tech:** Node.js, SendGrid — **Impact:** Automated notification to operators when receipts need review
-- `[feature]` Extended receipt upload to restaurant operator (Rob) and customer (Sally) portals — **Tech:** Node.js, Express — **Impact:** Receipt upload available across all user roles
+- `[feature]` Extended receipt upload to restaurant operator and customer portals — **Tech:** Node.js, Express — **Impact:** Receipt upload available across all user roles
 - `[bugfix]` Fixed subtotal parsing, duplicate uploads, reupload-after-rejection, expired links, email formatting — **Tech:** Node.js, AWS Textract — **Impact:** Reliable receipt processing end-to-end
-
----
-
-### May 2025 | GHL Tag Tracking & Points Sync
-
-- `[feature]` Implemented tag tracking across Loyal, Non-Loyal, and Marketplace customer segments — **Tech:** Node.js, GoHighLevel API — **Impact:** Segment-aware tagging in CRM for targeted campaigns
-- `[feature]` Extended event tracking to non-signed-up and marketplace customer segments — **Tech:** Node.js, GoHighLevel API, Event-Driven Architecture — **Impact:** Full customer lifecycle visibility in CRM
-- `[mentorship]` Conducted knowledge transfer on NSU and marketplace user points data sync — **Impact:** Team upskilled on points sync logic
-- `[bugfix]` Fixed brand-specific POS login URLs, missing marketplace orders, simultaneous scraping conflicts — **Tech:** Node.js, Web Scraping — **Impact:** Stable multi-brand scraping
-- `[bugfix]` Fixed Lambda production error during model initialization blocking order processing — **Tech:** AWS Lambda, Sequelize — **Impact:** Unblocked production order processing
-
----
-
-### May – Jun 2025 | Zapier Integration
-
-- `[architecture]` Built complete Zapier workflow automation integration as sole developer — **Tech:** Node.js, Zapier Platform, Webhooks — **Impact:** Platform connected to 5000+ apps via Zapier
-- `[research]` Explored Zapier developer platform and designed integration architecture — **Tech:** Zapier Platform — **Impact:** Defined trigger/action model for platform events
-- `[feature]` Developed 9 distinct trigger modules — 3 loyal customer, 1 marketplace orders, 1 non-signed-up users, 4 rewards — **Tech:** Node.js, Zapier Platform, Webhooks — **Impact:** Comprehensive event coverage for external automation
-- `[testing]` Created and validated production Zaps — **Tech:** Zapier — **Impact:** Verified end-to-end automation workflows
-- `[improvement]` Reviewed and standardized trigger types across all Zapier events — **Tech:** Node.js — **Impact:** Consistent trigger contract for Zapier consumers
-
----
-
-### Jun 2025 | Secure APIs, Auth Fixes & Restaurant Settings
-
-- `[security]` Replaced legacy GUID-based customer identification with new secure customer IDs in API requests — **Tech:** Node.js, Express — **Impact:** Eliminated insecure customer ID exposure
-- `[bugfix]` Removed expired access token validation from refresh token flow — **Tech:** Node.js, JWT, Keycloak — **Impact:** Fixed critical auth flow preventing token refresh
-- `[bugfix]` Fixed Nginx proxy server build issues and Omnicart API 401 errors — **Tech:** NGINX, Lua — **Impact:** Restored proxy server builds and API access
-- `[feature]` Built multi-restaurant settings — apply page details, payment method summary, shared payment method across restaurants — **Tech:** Node.js, Express, Sequelize, MySQL — **Impact:** Admins can manage settings at scale across restaurant groups
-- `[devops]` Defined IAM access structure for the team — **Tech:** AWS IAM — **Impact:** Proper access controls for all team members
-
----
-
-### Jun – Jul 2025 | Receipt Improvements & Payment Features
-
 - `[improvement]` Added attachment links in action-required emails for receipt uploads — **Tech:** Node.js, SendGrid — **Impact:** Operators can access receipts directly from email
 - `[bugfix]` Fixed receipt subtotal zero, duplicate uploads, reupload errors, expired links, edited receipt submission failures — **Tech:** Node.js, AWS Textract — **Impact:** Stable receipt processing pipeline
-- `[feature]` Implemented card expiry date display in payment settings — **Tech:** Node.js, Stripe — **Impact:** Users can see card expiry before it lapses
-- `[devops]` Enabled selective deployment from staging to pre-prod — **Tech:** CI/CD, Git — **Impact:** Smoother release process with reduced risk
-- `[bugfix]` Fixed card deletion and duplicate card addition issues — **Tech:** Node.js, Stripe — **Impact:** Clean payment method management
-- `[integration]` Integrated Zoho Help Desk with the platform — **Tech:** Node.js, Zoho API — **Impact:** Unified customer support workflow
 
 ---
 
-### Jul – Aug 2025 | Payment Fixes & Financial Accuracy
+### EPIC 4: Financial System Modernization (Aug – Nov 2025)
 
-- `[bugfix]` Fixed payment processing failures when cards added from All Store settings — **Tech:** Node.js, Stripe — **Impact:** Payments work regardless of card assignment scope
-- `[feature]` Updated DB schema to track Stripe Customer ID in payment methods and business entities — **Tech:** MySQL, Sequelize, Stripe — **Impact:** Reliable Stripe customer tracking
-- `[bugfix]` Resolved recurring expired card errors triggered by hourly cron jobs and webhooks — **Tech:** Node.js, Stripe, Cron — **Impact:** Eliminated noisy recurring payment errors in production
-- `[bugfix]` Fixed card re-addition after deletion and empty restaurant details for new restaurants — **Tech:** Node.js, Stripe, Sequelize — **Impact:** Smooth payment onboarding for new restaurants
-
----
-
-### Aug – Sep 2025 | Double-Entry Bookkeeping & Ledger Migration
-
+**Double-Entry Bookkeeping & Ledger Migration (Aug – Sep 2025)**
 - `[architecture]` Led research and implementation of migrating platform ledger to double-entry bookkeeping system — **Tech:** Node.js, Sequelize, MySQL — **Impact:** Accounting-grade financial record keeping
 - `[research]` Designed migration strategy from single-entry to double-entry bookkeeping — **Tech:** MySQL, Sequelize — **Impact:** Clear migration path with minimal data loss risk
 - `[feature]` Implemented data migration scripts for transitioning existing ledger entries — **Tech:** Node.js, Sequelize, MySQL — **Impact:** Historical data preserved in new format
@@ -169,20 +116,12 @@
 - `[feature]` Built core double-entry bookkeeping logic with comprehensive unit tests — **Tech:** Node.js, Jest, Sequelize — **Impact:** Tested and reliable financial logic
 - `[feature]` Added gohighlevelSyncEnabled property for per-restaurant GHL sync toggle — **Tech:** Node.js, Sequelize — **Impact:** Granular control over CRM sync per restaurant
 - `[bugfix]` Fixed broken unit test cases across the codebase — **Tech:** Jest, Node.js — **Impact:** Green CI pipeline
-
----
-
-### Sep – Oct 2025 | Ledger Finalization & Wallet Planning
-
 - `[devops]` Managed staging environment reverts for safe ledger iteration across multiple sprint cycles — **Tech:** Git, Node.js — **Impact:** Safe iterative development without production risk
 - `[feature]` Introduced Amazon gift card account into ledger and updated expired cashback points handling — **Tech:** Node.js, Sequelize, MySQL — **Impact:** Gift card transactions tracked in financial system
 - `[research]` Conducted research and planning for Wallet feature — **Tech:** Node.js, MySQL — **Impact:** Defined wallet architecture and data model
 - `[bugfix]` Resolved recurring Stripe subscription payment errors and card re-addition issues — **Tech:** Node.js, Stripe — **Impact:** Stable subscription billing
 
----
-
-### Oct – Nov 2025 | Wallet System & Reporting Overhaul
-
+**Wallet System & Reporting Overhaul (Oct – Nov 2025)**
 - `[architecture]` Designed wallet schema and data modeling — **Tech:** MySQL, Sequelize — **Impact:** Scalable wallet data layer
 - `[feature]` Implemented core wallet functionality — credit, debit, and balance management — **Tech:** Node.js, Express, Sequelize, MySQL — **Impact:** Restaurants can manage credits digitally
 - `[feature]` Integrated wallet with existing ledger for payment processing — **Tech:** Node.js, Sequelize, MySQL — **Impact:** Wallet transactions reflected in financial ledger
@@ -191,10 +130,7 @@
 - `[improvement]` Added old Stripe Transaction IDs to new reports for traceability — **Tech:** Node.js, Stripe — **Impact:** Audit trail between old and new report formats
 - `[bugfix]` Fixed record mismatches between old and new report formats in production — **Tech:** Node.js, MySQL — **Impact:** Data consistency between legacy and new systems
 
----
-
-### Nov – Dec 2025 | Wallet Maturation & Production Hardening
-
+**Wallet Maturation & Production Hardening (Nov – Dec 2025)**
 - `[feature]` Built shared wallet restrictions for individual wallet operations — **Tech:** Node.js, Express, Sequelize — **Impact:** Proper fund isolation between shared and individual wallets
 - `[feature]` Implemented auto-recharge toggle functionality — **Tech:** Node.js, Stripe, Sequelize — **Impact:** Automatic wallet top-up when balance is low
 - `[feature]` Implemented low-balance wallet backup notification strategy — **Tech:** Node.js, SendGrid — **Impact:** Proactive alerts before wallet runs dry
@@ -202,12 +138,24 @@
 - `[bugfix]` Fixed 12+ wallet bugs — processing fees, report downloads, approval failures, filter errors, transaction history leaks, add funds errors, zero-amount bugs, auto-recharge issues, date display gaps — **Tech:** Node.js, Stripe, Sequelize — **Impact:** Production-stable wallet system
 - `[devops]` Managed production wallet release preserving existing card payment methods — **Tech:** Node.js, Stripe, MySQL — **Impact:** Zero-downtime wallet feature rollout
 - `[bugfix]` Fixed financial reports to show receivable transactions instead of payment-method transactions — **Tech:** Node.js, Sequelize — **Impact:** Accurate receivable accounting
-- `[mentorship]` Led backend code walkthroughs for new team member Rahul — **Impact:** Accelerated onboarding of new developer
+
+**Payment Features & Financial Accuracy (Jun – Aug 2025)**
+- `[feature]` Implemented card expiry date display in payment settings — **Tech:** Node.js, Stripe — **Impact:** Users can see card expiry before it lapses
+- `[bugfix]` Fixed card deletion and duplicate card addition issues — **Tech:** Node.js, Stripe — **Impact:** Clean payment method management
+- `[integration]` Integrated Zoho Help Desk with the platform — **Tech:** Node.js, Zoho API — **Impact:** Unified customer support workflow
+- `[bugfix]` Fixed payment processing failures when cards added from All Store settings — **Tech:** Node.js, Stripe — **Impact:** Payments work regardless of card assignment scope
+- `[feature]` Updated DB schema to track Stripe Customer ID in payment methods and business entities — **Tech:** MySQL, Sequelize, Stripe — **Impact:** Reliable Stripe customer tracking
+- `[bugfix]` Resolved recurring expired card errors triggered by hourly cron jobs and webhooks — **Tech:** Node.js, Stripe, Cron — **Impact:** Eliminated noisy recurring payment errors in production
+- `[bugfix]` Fixed card re-addition after deletion and empty restaurant details for new restaurants — **Tech:** Node.js, Stripe, Sequelize — **Impact:** Smooth payment onboarding for new restaurants
+- `[feature]` Built multi-restaurant settings — apply page details, payment method summary, shared payment method across restaurants — **Tech:** Node.js, Express, Sequelize, MySQL — **Impact:** Admins can manage settings at scale across restaurant groups
+- `[devops]` Enabled selective deployment from staging to pre-prod — **Tech:** CI/CD, Git — **Impact:** Smoother release process with reduced risk
+- `[devops]` Defined IAM access structure for the team — **Tech:** AWS IAM — **Impact:** Proper access controls for all team members
 
 ---
 
-### Dec 2025 | Marketplace Data Platform — New Initiative
+### EPIC 5: Marketplace & Multi-Brand Expansion (Dec 2025 – Jan 2026)
 
+**Marketplace Data Platform (Dec 2025)**
 - `[architecture]` Architected new Marketplace scraping and data ingestion platform from scratch — **Tech:** Python, crawl4ai, AWS S3 — **Impact:** Foundation for scalable marketplace data collection
 - `[architecture]` Created architecture and flow plan for marketplace data ingestion — **Tech:** Mermaid, Draw.io — **Impact:** Clear technical blueprint for team
 - `[research]` Conducted spike on crawl4ai for intelligent web scraping with demo implementation — **Tech:** Python, crawl4ai — **Impact:** Validated crawl4ai as scraping solution
@@ -219,15 +167,44 @@
 - `[architecture]` Defined S3 folder naming conventions for scraped data — **Tech:** AWS S3 — **Impact:** Organized and retrievable data storage
 - `[feature]` Implemented data normalization and S3 storage for scraped ezCater data — **Tech:** Python, AWS S3 — **Impact:** Clean normalized data ready for downstream processing
 
+**Brand Architecture & Reward Refactoring (Jan 2026)**
+- `[feature]` Configured Crawl4AI to run scraping in parallel for improved performance — **Tech:** Python, crawl4ai, Async — **Impact:** Significant reduction in total scrape time
+- `[architecture]` Designed image processing pipeline for localizing menu images — **Tech:** Python, AWS S3 — **Impact:** Local image hosting for faster menu rendering
+- `[architecture]` Refactored reward calculation logic into single testable domain module — process transaction, cashback calculation, order calculation, cashback recalculation — **Tech:** Node.js, Jest — **Impact:** Maintainable and testable reward logic with clear domain boundaries
+- `[feature]` Implemented Lambda-to-backend API calls for reward calculation of new orders — **Tech:** AWS Lambda, Node.js, Express — **Impact:** Decoupled reward calculation from Lambda runtime
+- `[architecture]` Designed Brand-Group-Store architecture — led Brand Hierarchy epic, schema migration for Points Tracking Config and Franchise Groups, Brand Mapper facade pattern — **Tech:** Node.js, Sequelize, MySQL — **Impact:** Foundation for multi-brand restaurant management
+
 ---
 
-### Jan 2026 | Reward Refactoring, Brand Architecture & Parallel Scraping
+### EPIC 6: Notification & Observability Infrastructure (Feb – Apr 2026)
 
-- `[feature]` Configured Crawl4AI to run scraping in parallel for improved performance — **Tech:** Python, crawl4ai, Async — **Impact:** Significant reduction in total scrape time
-- `[architecture]` Designing image processing pipeline for localizing menu images — **Tech:** Python, AWS S3 — **Impact:** Local image hosting for faster menu rendering
-- `[architecture]` Refactoring reward calculation logic into single testable domain module — process transaction, cashback calculation, order calculation, cashback recalculation — **Tech:** Node.js, Jest — **Impact:** Maintainable and testable reward logic
-- `[feature]` Implemented Lambda-to-backend API calls for reward calculation of new orders — **Tech:** AWS Lambda, Node.js, Express — **Impact:** Decoupled reward calculation from Lambda runtime
-- `[architecture]` Designing Brand-Group-Store architecture — leading Brand Hierarchy epic, schema migration for Points Tracking Config and Franchise Groups, Brand Mapper facade pattern — **Tech:** Node.js, Sequelize, MySQL — **Impact:** Foundation for multi-brand restaurant management
+**Notification Service Refactoring**
+- `[architecture]` Architected centralized notification service refactoring from scattered imperative sendMail/sendSMS calls into registry-driven dispatcher with provider-agnostic channels — migrated 47+ notification events across 6 subsystems — **Tech:** Node.js, Event-Driven Architecture, Provider Abstraction, Sequelize — **Impact:** Unified notification dispatch enabling consistent delivery tracking, preference management, and admin visibility across all platform events
+
+**Inbound Notification Webhook System**
+- `[architecture]` Designed and implemented inbound notification webhook system with provider-based delivery tracking, ECDSA signature verification, and admin notification logs UI — supports SendGrid and MSG91 with extensible provider pattern — **Tech:** Node.js, Express, Webhooks, SNS, SQS, React, Factory Pattern — **Impact:** Full notification delivery audit trail enabling troubleshooting, compliance reporting, and platform reliability insights
+- `[feature]` Implemented webhook provider detection logic and simplified verification flow for inbound webhook processing — **Tech:** Node.js — **Impact:** Improved webhook routing accuracy
+- `[feature]` Implemented SendGrid webhook event processing — inbound webhook events (delivered, opened, bounced, etc.) now update corresponding notification log entries — **Tech:** Node.js — **Impact:** Real-time delivery status tracking
+- `[feature]` Refactored SendGrid email adapter to factory pattern, integrating notification log tracking so every outbound email creates a log entry with provider metadata — **Tech:** Node.js — **Impact:** Automated delivery tracking for all emails
+- `[feature]` Integrated notification log tracking into email queue consumer — emails processed from SQS now automatically log delivery attempts with messageId and provider info — **Tech:** Node.js — **Impact:** Complete audit trail for email delivery
+- `[feature]` Refactored MSG91 SMS adapter to factory pattern with notification log tracking — **Tech:** Node.js — **Impact:** Consistent logging across SMS and email providers
+- `[feature]` Implemented MSG91 webhook provider to handle inbound SMS delivery status callbacks and update notification logs — **Tech:** Node.js — **Impact:** SMS delivery tracking with provider integration
+- `[feature]` Optimized notification log database indexes for improved query performance on provider-based lookups — **Tech:** Node.js — **Impact:** Fast retrieval of delivery logs
+- `[feature]` Added notification logs API endpoint in admin backend with provider-based filtering and pagination — **Tech:** Node.js, Express — **Impact:** Admin visibility into notification delivery status
+- `[feature]` Built notification logs UI in admin-frontend with detailed event tracking, filtering by provider/status, and pagination — **Tech:** React — **Impact:** Admin dashboard for notification monitoring
+- `[feature]` Integrated notification logs tab into the notification catalog page with cross-tab navigation — **Tech:** React — **Impact:** Unified admin interface for notification management
+- `[feature]` Implemented idempotent webhook event logging for SendGrid provider to prevent duplicate event entries — **Tech:** Node.js — **Impact:** Clean audit trail without duplicates
+- `[devops]` Manually created AWS resources: Parameter Store keys for webhook verification (SENDGRID_WEBHOOK_VERIFICATION_KEY, MSG91_WEBHOOK_SECRET_KEY), SNS Topic for inbound notifications — **Tech:** AWS — **Impact:** Production infrastructure for webhook processing
+
+---
+
+### Security, Developer Velocity & Team Leadership (Throughout 2025)
+
+- `[security]` Secured API surface by implementing IP-based rate limiting on public endpoints with Redis-backed distributed store and exponential backoff for sensitive operations (OTP, login, password reset) — **Tech:** Node.js, Express, Redis — **Impact:** Protected against automated abuse and DDoS attacks on critical authentication paths
+- `[security]` Led migration from legacy GUID-based customer identification to secure customer IDs across all API surfaces — eliminated information disclosure vulnerabilities in public APIs — **Tech:** Node.js, Express — **Impact:** Improved API security posture for production systems
+- `[improvement]` Mandated Test-Driven Development (TDD) across critical platform systems — drove test coverage progression from 0% to 70%+ in financial, wallet, and payment modules through code review enforcement and developer ramp-up — **Tech:** Jest, Supertest, Node.js, Git, CI/CD — **Impact:** Reduced production bugs by enforcing quality gates; established testing culture and improved codebase reliability across team
+- `[architecture]` Owned complete Zapier workflow automation integration as sole developer — designed 9 trigger modules across customer, order, and reward events, connecting platform to 5000+ external applications — **Tech:** Node.js, Zapier Platform, Webhooks — **Impact:** Enabled external workflow automation across full customer and rewards lifecycle
+- `[mentorship]` Established backend onboarding process with structured code walkthroughs and knowledge transfer — created repeatable playbook for new developer ramp-up — **Impact:** Accelerated new team member onboarding
 
 ---
 
