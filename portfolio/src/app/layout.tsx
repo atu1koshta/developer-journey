@@ -37,8 +37,8 @@ export default function RootLayout({
           <Footer />
         </ThemeProvider>
         <script
-          src="https://widget-dev.cateringrewards.com/loader.js"
-          data-cr-partner-key="wp_602a2c7bb789c64ca34995598dfb9d6c"
+          src="https://widget-staging.cateringrewards.com/loader.js"
+          data-cr-partner-key="wp_2f1fee579c4f220c9a4b965b7b7c959d"
           data-cr-position="bottom-right"
           async
         />

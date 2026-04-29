@@ -1,0 +1,99 @@
+cv:
+  name: Atul Koshta
+  headline: Full-Stack Software Engineer
+  email: atulk@cateringrewards.com
+  location: Bangalore, India
+
+  sections:
+    summary:
+      - Solution engineer who pairs end-to-end architectural ownership with measurable business impact builds platforms that move revenue, conversion, and operational metrics, not just ship code. Comfortable as sole developer on greenfield systems or leading architectural migrations across multi-portal, multi-brand environments, spanning authentication, ETL, financial accounting, wallet, integrations, and AI-powered systems. Establishes engineering culture through proved standard practices, security hardening, and reliability-first design.
+    work:
+      - company: HAR LLC
+        position: Software Engineer (Contract)
+        location: Phoenix, AZ, USA (Remote)
+        start_date: 2024-09
+        end_date: present
+        highlights:
+          - "Drove **7.4x** monthly revenue growth and managed **$5K+** in customer prepaid balances by designing and delivering a wallet system — credit/debit engine, auto-recharge, brand-level configuration"
+          - "Tracked **$13.5K+** platform revenue across **3** streams with **776** compliant journal entries by leading migration from single-entry to **double-entry bookkeeping** — achieved accounting-grade auditability"
+          - "**Eliminated DB bottlenecks** and enabled independent scaling of order ingestion and storage layers by designing and executing iterative database decoupling from the scraping pipeline across **2** releases"
+          - "Enabled multi-brand and multi-franchise support on a single platform by leading Brand-Group-Store architecture — brand hierarchy schema, franchise group management, Brand Mapper facade pattern"
+          - "Unified order ingestion across MonkeyMedia POS, Olo, and marketplace platforms by architecting AWS SQS queue-based async processing — enabled consistent rewards calculation regardless of source"
+          - "Automated receipt verification at **83%** operator approval rate by owning the end-to-end receipt pipeline — schema design, S3 upload APIs, AWS Textract OCR with **AI processing**, and operator approval workflow"
+          - "Consolidated **47+** notification events across **6** subsystems into a single registry-driven dispatcher with provider-agnostic channels, replacing scattered ad-hoc implementations"
+          - "Integrated GoHighLevel and Zapier via a  real-time event-driven pipeline streaming
+            customer, order, and reward events to power segment-aware tagging and targeted
+            marketing campaigns."
+          - "Established the customer-lifecycle foundation across **3** portals serving **552+** customers by architecting and owning a complete authentication system — OTP-based login, Keycloak SSO, NGINX/Lua proxy, JWT management"
+          - "Established a single source of truth for downstream services by designing a secure API structure for restaurant owners with Keycloak client auth and an Nginx proxy adapter enforcing standardized contracts"
+          - "Provided full delivery audit trail and tamper-proof inbound integrations by designing a webhook system with provider-based delivery tracking, ECDSA signature verification, and admin notification logs UI"
+          - "Eliminated information disclosure vulnerabilities in public APIs by leading migration from GUID-based to secure customer IDs across all API surfaces"
+          - "Drove test coverage from **0%** to **70%+** in financial, wallet, and payment systems by mandating Test-Driven Development across critical modules and enforcing CI/CD review gates"
+
+      - company: TRGT Digital
+        position: Software Development Engineer
+        location: Barcelona, Spain
+        start_date: 2023-06
+        end_date: 2024-01
+        highlights:
+          - "Enabled campaign performance measurement on a digital marketing platform by designing a user engagement tracking system using Flask and MySQL"
+          - "Optimized dashboard load time by **80%** through a Redis caching strategy"
+
+      - company: Bluesapling Technologies
+        position: Software Development Engineer
+        location: Bangalore, India
+        start_date: 2022-05
+        end_date: 2023-05
+        highlights:
+          - "Achieved **~50%** reduction in API response time by engineering an algorithm to update user progress across multiple groups using Node.js and MongoDB"
+          - "Adapted EdTech platform to evolving business and end-user needs by shipping iterative feature enhancements"
+
+      - company: Wipro
+        position: Solution Quality Assurance Engineer
+        location: Bangalore, India
+        start_date: 2021-07
+        end_date: 2022-05
+        highlights:
+          - "Ensured product quality across enterprise software lines by collaborating with cross-functional teams on QA strategy and execution"
+          - "Delivered release-ready quality gates across enterprise product lines, supporting on-time releases"
+
+    skills:
+      - label: Advanced Architecture Patterns
+        details: "Event-Driven Microservices, Multi-Tenancy Isolation (Sequelize Facade Pattern), System Decoupling via Queue-Based Processing, Provider-Agnostic Architecture, Registry-Driven Dispatchers, Webhook-Based Event Streaming, Async Consumer Patterns, API Gateway Abstraction"
+
+      - label: Backend & Core Systems
+        details: "Node.js/Express (primary), Python/crawl4ai, Sequelize ORM, MySQL Schema Design, Double-Entry Bookkeeping Logic, Financial Ledger Systems, Domain-Driven Design"
+
+      - label: Cloud & Async Processing
+        details: "AWS (SQS async consumers, Lambda, S3, Textract OCR, IAM), Queue-Based Microservices, Event-Driven Processing, Independent Scaling Patterns, CI/CD Pipeline Optimization"
+
+      - label: Authentication & Security
+        details: "Keycloak SSO Integration, OAuth2/JWT, OTP-Based Auth Flows, NGINX/Lua Proxy Layers, ECDSA Signature Verification, IP-Based Rate Limiting, Redis-Backed Distributed Stores, Information Disclosure Vulnerability Mitigation"
+
+      - label: Data & Performance
+        details: "MySQL Schema Migration, Batch Processing Optimization (MongoDB aggregation), Redis Caching Strategies, Async Database Decoupling, Query Optimization for Analytics"
+
+      - label: Testing & Quality
+        details: "Test-Driven Development (Jest, Supertest), CI/CD Code Review Enforcement, Test Coverage Progression (0% → 70%+), Integration Testing, Automated Test Data Factories"
+
+      - label: Integrations & External Systems
+        details: "GoHighLevel CRM API, Zapier Platform (9 trigger modules), Stripe Payments, SendGrid Email + Webhooks, MSG91 SMS, Google APIs, Web Scraping (crawl4ai)"
+
+      - label: AI & Advanced Processing
+        details: "AWS Textract OCR, AI-Powered Data Extraction, Intelligent Web Scraping (crawl4ai), Receipt Parsing Automation"
+
+      - label: Leadership & Ownership
+        details: "End-to-End Ownership (sole-developer delivery of Zapier integration, wallet system, authentication platform), Technical Leadership (led architectural migrations across 3 portals and 6 subsystems), Engineering Culture Driver (mandated TDD adoption, drove coverage 0% → 70%+), Independent Architecture (designed and delivered platforms from scratch with full lifecycle ownership)"
+
+    education:
+      - institution: Indian Institute of Technology, Kharagpur
+        studyType: Master of Technology (M.Tech.)
+        area: Engineering Entrepreneurship
+        start_date: 2016-07
+        end_date: 2021-07
+
+      - institution: Indian Institute of Technology, Kharagpur
+        studyType: Bachelor of Technology (B.Tech.)
+        area: Mining Engineering
+        start_date: 2016-07
+        end_date: 2020-07
